@@ -1,0 +1,28 @@
+<exec>
+for x in range (len(Q243.rows)):
+    for y in range (len(Q243.cols)):
+      Q243.rows[y][x].val = 1  
+       
+</exec>
+
+<suspend/>
+
+<checkbox 
+  label="Q243"
+  atleast="1"
+  builderHint="{&quot;rocochoName&quot;:&quot;checkboxgrid&quot;}">
+  <title>New Multi-Select Question</title>
+  <comment>Select all that apply for each option</comment>
+  <col label="c1">a</col>
+  <col label="c2">b</col>
+  <col label="c3">c</col>
+  <col label="c4">d</col>
+  <col label="c5">e</col>
+  <row label="r1">A</row>
+  <row label="r2">B</row>
+  <row label="r3">C</row>
+  <row label="r4">D</row>
+  <row label="r5">E</row>
+</checkbox>
+
+<suspend/>
