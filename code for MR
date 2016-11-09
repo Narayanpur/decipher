@@ -1,0 +1,67 @@
+<style mode="after" name="respview.client.js" with="Q3" wrap="ready"><![CDATA[
+var neededWidth = jQuery('#surveyContent').width() * 0.30
+  var neededMarginLeft = neededWidth/12
+  var neededMarginRight = neededWidth/5
+  jQuery('#question_Q3').attr('style','width: ' + neededWidth + 'px !important; margin-left: ' + neededMarginLeft + 'px !important;');
+
+	});
+]]></style>
+<suspend/>
+
+<text 
+  label="Q3"
+  optional="0"
+  randomize="0"
+  rowLegend="right"
+  size="40"
+  uses="fir.2">
+  <title>Which Scandinavian textile design brands for everyday usage are familiar to you, even by name?</title>
+  <comment>${res.oe}</comment>
+  <validate>
+for x in range(len(this.rows)):
+      if this.rows[x] and (x+1) gt sum(1 for x in range(len(this.rows)) if this.rows[x]):
+         error("Angiv dit svar i den rigtige rækkefølge.", row=this.rows[x])
+for x in range(len(this.rows)):
+  if this.rows[x]:
+    for y in range(len(this.rows)):
+      if this.rows[y]:
+        if (this.rows[x].val and (this.rows[x].val.strip().lower() == this.rows[y].val.strip().lower())) and (x!=y):
+           error("Du må helst ikke give det samme svar.")
+  </validate>
+
+  <style name="question.na.row"><![CDATA[
+<tr class="$(rowStyle) naRow">
+<br><br>
+<td colspan="2" style="border:0;"><table style="width:100%"><tr>
+<td style="width:1%; border:0" colspan="$(colCount)" headers="${ec.this.label + "_" + ec.col.label if ec.col.label else ""}"  class="element $(extraClasses) $(col.styles.ss.colClassNames) $(row.styles.ss.rowClassNames) clickableCell survey-q-grid-cell-clickable" $(extra)>
+<input type="checkbox" name="$(row.checkboxLabel)" value="1" $(value|checkbox) />
+</td>
+<td style="border:0;font-family:tahoma,geneva,sans-serif;font-size:16px;font-style:normal;">$(text)</td>
+
+</td></tr></table>
+</tr>
+]]></style>
+  <style name="page.head"><![CDATA[
+<style type="text/css">
+.survey-q-grid .odd td {
+    background-color: #fff !important;
+}
+
+.survey-q-grid th, .survey-q-grid td {
+    border-color: #fff !important;
+    border-style: none;
+}
+  </style>
+]]></style>
+  <row label="r1" value="1"/>
+  <row label="r2" optional="1" value="2"/>
+  <row label="r3" optional="1" value="3"/>
+  <row label="r4" optional="1" value="4"/>
+  <row label="r5" optional="1" value="5"/>
+  <row label="r6" optional="1" value="6"/>
+  <row label="r7" optional="1" value="7"/>
+  <row label="r8" optional="1" value="8"/>
+  <noanswer label="r9">I don't know</noanswer>
+</text>
+
+<suspend/>
