@@ -1,0 +1,1341 @@
+<style name="respview.client.css" mode="after"><![CDATA[
+<style type="text/css">
+.survey-q-question-text, .survey-comment-text{
+font-weight: 600 !important;
+#font-size: 18px !important;
+}
+.survey-q-instructions-text{
+#font-size: 15px !important;
+}
+.qwidget_textarea{
+#font-size: 16px !important;
+height: 80% !important;
+font-weight: 400;
+}
+
+#BtnMatrixComponent #QRowContainer{
+left: 50% !important;
+}
+</style>
+]]></style>
+
+<!-- ================================================================================================================================ -->
+
+
+<exec>
+snarray=["422886","FranceSN","GermanySN"]
+if sn in snarray:
+	N1.val = snarray.index(sn)
+else:
+	N1.val=0
+
+N2.val=1
+if list=='5':
+	N2.val=0
+</exec>
+
+
+<radio label="N1" translateable="0" style="dev" cond="not gv.isSST() and (gv.survey.root.state.dev or gv.survey.root.state.testing)">
+  <title>Code country</title>
+  <comment>Select one</comment>
+  <row label="r1">UK</row>
+  <row label="r2">France</row>
+  <row label="r3">Germany</row>
+</radio>
+<suspend/>
+
+
+
+<radio label="N2" translateable="0" style="dev" cond="not gv.isSST() and (gv.survey.root.state.dev or gv.survey.root.state.testing)">
+  <title>Source</title>
+  <comment>Select one</comment>
+  <row label="r1">Ubisoft CRM</row>
+  <row label="r2">GMI contact</row>
+</radio>
+<suspend/>
+
+
+<exec>
+p.allgames=[[0,1,2,3,4,5,6,7,8,9],[10],[11],[12,13],[14,15,16,17],[18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35],[36,37,38,39,40,41,42,43,44,45,46],[47,48],[49,50,51,52,53,54,55,56,57,58],[59,60,61,62,63,64,65,66,67,68,69,70],[71,72,73],[74],[75],[76],[77],[78,79],[80],[81,82],[83,84,85],[86,87,88],[89,90,91],[92],[93],[94],[95,96,97],[98,99,100,101,102],[103],[104,105],[106],[107],[108,109],[110],[111,112],[113],[114,115,116],[117],[118,119,120,121,122],[123],[124],[125],[126,127,128]]
+</exec>
+
+
+<quota sheet="total" overquota="noqual" />
+
+<!-- ================================================================================================================================ -->
+
+@define GAMES_Duplicates_removed
+  <col label="c1">Just Dance</col>
+  <col label="c2">Tom Clancy's Splinter Cell</col>
+  <col label="c3">Hitman</col>
+  <col label="c4">Metal Gear Solid</col>
+  <col label="c5">Batman</col>
+  <col label="c6">Assassin's Creed</col>
+  <col label="c7">Grand Theft Auto (GTA)</col>
+  <col label="c8">The Elder Scrolls</col>
+  <col label="c9">Far Cry</col>
+  <col label="c10">Call of Duty</col>
+  <col label="c11">Battlefield</col>
+  <col label="c12">Red Dead Redemption</col>
+  <col label="c13">Bioshock</col>
+  <col label="c14">WatchDogs</col>
+  <col label="c15">Rayman</col>
+  <col label="c16">FIFA</col>
+  <col label="c17">Diablo</col>
+  <col label="c18">Destiny</col>
+  <col label="c19">Skylanders</col>
+  <col label="c20">Disney Infinity</col>
+  <col label="c21">LEGO games</col>
+  <col label="c22">Mario Kart</col>
+  <col label="c23">Borderlands</col>
+  <col label="c24">Titanfall</col>
+  <col label="c25">Tomb Raider</col>
+  <col label="c26">Uncharted</col>
+  <col label="c27">Dragon Age</col>
+  <col label="c28">The Crew</col>
+  <col label="c29">Middle Earth: Shadow of Mordor</col>
+  <col label="c30">Sunset Overdrive</col>
+  <col label="c31">HALO</col>
+  <col label="c32">Little Big Planet</col>
+  <col label="c33">Tom Clancy's Rainbow Six</col>
+  <col label="c34">Tom Clancy's Ghost Recon</col>
+  <col label="c35">The Witcher</col>
+  <col label="c36">Star Wars: Battlefront</col>
+  <col label="c37">Fallout</col>
+  <col label="c38">Minecraft</col>
+  <col label="c39">Pokemon</col>
+  <col label="c40">Tom Clancy's: The Division</col>
+  <col label="c41">Dark souls</col>
+
+@end
+
+
+@define GAMES_Duplicates_removed_rows
+  <row label="r1">Just Dance</row>
+  <row label="r2">Tom Clancy's Splinter Cell</row>
+  <row label="r3">Hitman</row>
+  <row label="r4">Metal Gear Solid</row>
+  <row label="r5">Batman</row>
+  <row label="r6">Assassin's Creed</row>
+  <row label="r7">Grand Theft Auto (GTA)</row>
+  <row label="r8">The Elder Scrolls</row>
+  <row label="r9">Far Cry</row>
+  <row label="r10">Call of Duty</row>
+  <row label="r11">Battlefield</row>
+  <row label="r12">Red Dead Redemption</row>
+  <row label="r13">Bioshock</row>
+  <row label="r14">WatchDogs</row>
+  <row label="r15">Rayman</row>
+  <row label="r16">FIFA</row>
+  <row label="r17">Diablo</row>
+  <row label="r18">Destiny</row>
+  <row label="r19">Skylanders</row>
+  <row label="r20">Disney Infinity</row>
+  <row label="r21">LEGO games</row>
+  <row label="r22">Mario Kart</row>
+  <row label="r23">Borderlands</row>
+  <row label="r24">Titanfall</row>
+  <row label="r25">Tomb Raider</row>
+  <row label="r26">Uncharted</row>
+  <row label="r27">Dragon Age</row>
+  <row label="r28">The Crew</row>
+  <row label="r29">Middle Earth: Shadow of Mordor</row>
+  <row label="r30">Sunset Overdrive</row>
+  <row label="r31">HALO</row>
+  <row label="r32">Little Big Planet</row>
+  <row label="r33">Tom Clancy's Rainbow Six</row>
+  <row label="r34">Tom Clancy's Ghost Recon</row>
+  <row label="r35">The Witcher</row>
+  <row label="r36">Star Wars: Battlefront</row>
+  <row label="r37">Fallout</row>
+  <row label="r38">Minecraft</row>
+  <row label="r39">Pokemon</row>
+  <row label="r40">Tom Clancy's: The Division</row>
+  <row label="r41">Dark souls</row>
+
+@end
+
+
+
+
+@define Games_full_list
+  <row label="r1">Just Dance 2016</row>
+  <row label="r2">Just Dance 2015</row>
+  <row label="r3">Just Dance Now (Mobile App)</row>
+  <row label="r4">Just Dance 2014</row>
+  <row label="r5">Just Dance 4</row>
+  <row label="r6">Just Dance 3</row>
+  <row label="r7">Just Dance 2</row>
+  <row label="r8">Just Dance</row>
+  <row label="r9">Just Dance Kids 2014</row>
+  <row label="r10">Just Dance Kids</row>
+  <row label="r11">Tom Clancy's Splinter Cell: Blacklist</row>
+  <row label="r12">Hitman: Absolution</row>
+  <row label="r13">Metal Gear Solid V: The Phantom Pain</row>
+  <row label="r14">Metal Gear Solid V: Ground Zeroes</row>
+  <row label="r15">Batman Arkham Knight</row>
+  <row label="r16">Batman Arkham Origins</row>
+  <row label="r17">Batman: Arkham City</row>
+  <row label="r18">Batman: Arkham Asylum</row>
+  <row label="r19">Assassin's Creed Syndicate</row>
+  <row label="r20">Assassin's Creed Unity</row>
+  <row label="r21">Assassin's Creed Rogue</row>
+  <row label="r22">Assassin's Creed IV: Black Flag </row>
+  <row label="r23">Assassin's Creed 3</row>
+  <row label="r24">Assassin's Creed 3: Liberation</row>
+  <row label="r25">Assassin's Creed Revelations</row>
+  <row label="r26">Assassin's Creed Brotherhood</row>
+  <row label="r27">Assassin's Creed 2</row>
+  <row label="r28">Assassin's Creed</row>
+  <row label="r29">Assassin's Creed: Altair's Chronicles</row>
+  <row label="r30">Assassin's Creed: Bloodlines</row>
+  <row label="r31">Assassin's Creed Chronicles: India</row>
+  <row label="r32">Assassin's Creed Chronicles: Russia</row>
+  <row label="r33">Assassin's Creed Chronicles: China</row>
+  <row label="r34">Assassin's Creed Pirates (Mobile App)</row>
+  <row label="r35">Assassin's Creed : Recollection (Mobile App)</row>
+  <row label="r36">Assassin's Creed Rearmed (Mobile App)</row>
+  <row label="r37">Grand Theft Auto V</row>
+  <row label="r38">Grand Theft Auto 4</row>
+  <row label="r39">Grand Theft Auto : San Andreas</row>
+  <row label="r40">Grand Theft Auto: Vice City</row>
+  <row label="r41">Grand Theft Auto 3</row>
+  <row label="r42">Grand Theft Auto 2</row>
+  <row label="r43">Grand Theft Auto</row>
+  <row label="r44">Grand Theft Auto: Episodes from Liberty City</row>
+  <row label="r45">Grand Theft Auto: Chinatown Wars</row>
+  <row label="r46">Grand Theft Auto: Vice City Stories</row>
+  <row label="r47">Grand Theft Auto: Liberty City Stories</row>
+  <row label="r48">The Elder Scrolls Online</row>
+  <row label="r49">The Elder Scrolls 5: Skyrim</row>
+  <row label="r50">Far Cry Primal</row>
+  <row label="r51">Far Cry 4</row>
+  <row label="r52">Far Cry 3: Blood Dragon</row>
+  <row label="r53">Far Cry 3</row>
+  <row label="r54">Far Cry 2</row>
+  <row label="r55">Far Cry</row>
+  <row label="r56">Far Cry: Vengeance</row>
+  <row label="r57">Far Cry: Instincts - Evolution</row>
+  <row label="r58">Far Cry: Instincts - Predator</row>
+  <row label="r59">Far Cry Instincts</row>
+  <row label="r60">Call Of Duty: Black Ops 3</row>
+  <row label="r61">Call of Duty: Advanced Warfare</row>
+  <row label="r62">Call of Duty: Ghosts</row>
+  <row label="r63">Call Of Duty: Black Ops 2</row>
+  <row label="r64">Call of Duty : Modern Warfare 3</row>
+  <row label="r65">Call of Duty: Black Ops</row>
+  <row label="r66">Call of Duty: Modern Warfare 2</row>
+  <row label="r67">Call of Duty: World at War</row>
+  <row label="r68">Call of Duty 4: Modern Warfare</row>
+  <row label="r69">Call of Duty 3</row>
+  <row label="r70">Call of Duty 2</row>
+  <row label="r71">Call of Duty</row>
+  <row label="r72">Battlefield Hardline</row>
+  <row label="r73">Battlefield 4</row>
+  <row label="r74">Battlefield 3</row>
+  <row label="r75">Red Dead Redemption</row>
+  <row label="r76">Bioshock Infinite</row>
+  <row label="r77">WatchDogs</row>
+  <row label="r78">Rayman Legends</row>
+  <row label="r79">FIFA 16</row>
+  <row label="r80">FIFA 15</row>
+  <row label="r81">Diablo III</row>
+  <row label="r82">Destiny: The Taken King</row>
+  <row label="r83">Destiny</row>
+  <row label="r84">Skylanders Superchargers</row>
+  <row label="r85">Skylanders Trap Team</row>
+  <row label="r86">Skylanders Swap Force</row>
+  <row label="r87">Disney Infinity 3.0</row>
+  <row label="r88">Disney Infinity 2.0</row>
+  <row label="r89">Disney Infinity</row>
+  <row label="r90">LEGO Dimensions</row>
+  <row label="r91">LEGO Jurassic World</row>
+  <row label="r92">LEGO Batman 3: Beyong Gotham</row>
+  <row label="r93">Mario Kart 8</row>
+  <row label="r94">Borderlands: The Pre-Sequel !</row>
+  <row label="r95">Titanfall</row>
+  <row label="r96">Rise of the Tomb Raider</row>
+  <row label="r97">Tomb Raider</row>
+  <row label="r98">Tomb Raider Definitive Edition</row>
+  <row label="r99">Uncharted 4: A Thief's End</row>
+  <row label="r100">Uncharted: Nathan Drake Collection</row>
+  <row label="r101">Uncharted 3: Drake's Deception</row>
+  <row label="r102">Uncharted 2</row>
+  <row label="r103">Uncharted: Drake's fortune</row>
+  <row label="r104">Dragon Age Inquisition</row>
+  <row label="r105">The Crew Wild Run</row>
+  <row label="r106">The Crew</row>
+  <row label="r107">Middle Earth: Shadow of Mordor</row>
+  <row label="r108">Sunset Overdrive</row>
+  <row label="r109">Halo 5: Guardians</row>
+  <row label="r110">Halo: The Master Chief Collection</row>
+  <row label="r111">Little Big Planet 3</row>
+  <row label="r112">Tom Clancy's Rainbow Six: Siege</row>
+  <row label="r113">Tom Clancy's Rainbow Six Vegas 2</row>
+  <row label="r114">Tom Clancy's Ghost Recon : Future Soldier</row>
+  <row label="r115">The Witcher 3: Wild Hunt</row>
+  <row label="r116">The Witcher 2: Assassins of Kings</row>
+  <row label="r117">The Witcher</row>
+  <row label="r118">Star Wars: Battlefront</row>
+  <row label="r119">Fallout 4</row>
+  <row label="r120">Fallout New Vegas</row>
+  <row label="r121">Fallout 3</row>
+  <row label="r122">Fallout 2</row>
+  <row label="r123">Fallout</row>
+  <row label="r124">Minecraft</row>
+  <row label="r125">Pokemon Alpha Sapphire &amp; Omega Ruby</row>
+  <row label="r126">Tom Clancy's: The Division</row>
+  <row label="r127">Dark Souls III</row>
+  <row label="r128">Dark Souls II</row>
+  <row label="r129">Dark Souls</row>
+
+
+@end
+
+<!--
+<exec>
+import csv
+
+ifile  = open('/home/gmi/v2/gmi/v2/391947/games.csv', "r")
+reader = csv.reader(ifile)
+
+counter = 0
+
+for row in reader:
+	Games_Base[int(row[1])-1][counter].val = 1
+	counter+=1
+</exec>
+
+
+<checkbox label="Games_Base" atleast="1" style="dev" cond="not gv.isSST() and (gv.survey.root.state.dev or gv.survey.root.state.testing)">
+  <title>Holds the base for the games</title>
+  <comment>Select all that apply</comment>
+@GAMES_Duplicates_removed
+@Games_full_list
+</checkbox>
+<suspend/>-->
+
+<!-- ================================================================================================================================ -->
+
+<html label="WELCOME" where="survey">Hello! We would like to ask you a few questions about your affinities with some of the most famous video game and entertainment franchises. This should take less than 15 minutes, and your answer will remain anonymous.  Also, there are no good or bad answers. Thank you for taking the survey!</html>
+<suspend/>
+
+
+<radio label="N3" cond="N2.r1" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:height="30" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10">
+  <title>Are you a Ubisoft employee?</title>
+
+  <row label="r1">Yes</row>
+  <row label="r2">No</row>
+</radio>
+<suspend/>
+
+<html label="Screen1" where="survey" cond="N3.r1">Thank you for your interest in our survey.  This questionnaire is dedicated to our gamers, and you know too much about our games 
+&amp;#9786; Your profile does not match what we are looking for at this time, and we will not move forward with you.</html>
+<suspend/>
+
+<term cond="N3.r1">A Ubisoft employee</term>
+
+
+<radio label="N4" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:height="30" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10" rowpicker:autoSubmit="1">
+  <title>Do you or anyone in your household work in video game-related media (eg. Press/magazines, media entertainment website) marketing, advertising or marketing research?</title>
+
+  <row label="r1">Yes</row>
+  <row label="r2">No</row>
+</radio>
+<suspend/>
+
+<html label="Screen2" where="survey" cond="N4.r1">Thank you for your interest in our survey.  Your profile does not match what we are looking for at this time, and we will not move forward with you.</html>
+<suspend/>
+
+<term cond="N4.r1">A Ubisoft employee</term>
+
+
+<radio label="N5" uses="rowpicker.15" rowpicker:theme="image single large" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10" rowpicker:rowBtnBorderRadius="70" rowpicker:autoSubmit="1">
+  <title>You are</title>
+
+  <row label="r1" rowpicker:image="[rel male-1.png]" alt="A male"> </row>
+  <row label="r2" rowpicker:image="[rel female-1.png]" alt="A female"> </row>
+</radio>
+<suspend/>
+
+
+<number label="N6" size="3" optional="0" verify="range(0,120)">
+  <title>How old are you?</title>
+  <comment> </comment>
+  
+</number>
+<suspend/>
+
+<term cond="N6.ival lt 15 or N6.ival gt 80">Less than 15 YO or greater than 80 YO!</term>
+
+
+<radio label="N7" uses="rowpicker.15" rowpicker:theme="statement single" rowpicker:height="30" rowpicker:autoSubmit="1">
+  <title>What is your profession?</title>
+  <row label="r1">Farmer</row>
+  <row label="r2">Self-employed craftsman / Shopkeeper / Company Director</row>
+  <row label="r3">Executive / Independent Professional</row>
+  <row label="r4">Intermediate occupation</row>
+  <row label="r5">Administrative worker</row>
+  <row label="r6">Manual worker</row>
+  <row label="r7">Retired</row>
+  <row label="r8">Student</row>
+  <row label="r9">Other non-working</row>
+</radio>
+<suspend/>
+
+<if cond="N6.val gt 17">
+
+<radio label="N8" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:height="30" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10" rowpicker:autoSubmit="1">
+  <title>How many children aged 15-17 do you have in your household who play videogames?</title>
+  <comment>By videogames, please consider games on PC/consoles</comment>
+  <row label="r1">0</row>
+  <row label="r2">1</row>
+  <row label="r3">2</row>
+  <row label="r4">3 or more</row>
+</radio>
+<suspend/>
+
+<term cond="N8.r1 and N6.ival gt 35">Inapropriate age</term>
+
+
+<if cond="not N8.r1">
+
+<pipe label="N9text">
+  <case label="p1" cond="N8.r2">Is your child available to answer a survey about videogames and entertainment?</case>
+  <case label="p2" cond="N8.r3 or N8.r4">In order to answer a survey about videogames and entertainment, could you pick one of your children aged from 15 to 17 who plays videogames the most.</case>
+  <case label="p3" cond="1">Undefined</case>
+</pipe>
+<suspend/>
+
+<radio label="N9" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:height="30" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10" cond="N8.r2 or N8.r3 or N8.r4" rowpicker:autoSubmit="1">
+  <title>[pipe: N9text]</title>
+  <comment>By videogames, please consider games on PC/consoles</comment>
+  <row label="r1">Yes</row>
+  <row label="r2">No</row>
+</radio>
+<suspend/>
+
+
+<exec>
+if hasMarker('seenOnce'):
+	removeMarker('seenOnce')
+if N9.r1:
+	N10.val = None
+</exec>
+
+
+<radio label="N10" cond="N9.r2" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:height="30" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10" rowpicker:autoSubmit="1">
+  <title>Would he/she be available later?</title>
+  <comment>Select one</comment>
+  <row label="r1">Yes</row>
+  <row label="r2">No</row>
+</radio>
+<suspend/>
+
+
+<term cond="N6.ival gt 35 and N10.r2">If N6 gt 35 yo and N10= code 2: Screen out</term>
+
+
+<html label="MSG2" where="survey" cond="N10.r1 and not hasMarker('seenOnce')">This survey is for children who play video games.  <br/>Please could you come back and complete the survey once you have your child with you. Simply click on the link once you are ready to continue with your child.</html>
+<exec cond="N10.r1">
+setMarker('seenOnce')
+</exec>
+<suspend/>
+
+
+<goto target="N9" cond="N10.r1 and hasMarker('seenOnce') and not gv.isSST()"/>
+
+
+<number label="N11" size="3" optional="0" verify="range(10,17)" cond="N9.r1">
+  <title>How old is he/she?</title>
+  <comment>Please enter a whole number</comment>
+  
+</number>
+<suspend/>
+
+
+
+<term cond="N11.ival lt 15 and N11.any">Child less that 15 y.o.</term>
+
+
+<html label="CHILD_INTRO_1" where="survey" cond="N11.ival in [15,16,17]">Please let your child answer to the following questions by him or herself.</html>
+<suspend/>
+
+<radio label="N12"
+cond="N11.ival in [15,16,17]"
+uses="rowpicker.15" rowpicker:theme="image single large" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10" rowpicker:rowBtnBorderRadius="70" rowpicker:autoSubmit="1"
+>
+  <title>Are you a boy or a girl?</title>
+  <comment>Select one</comment>
+  <row label="r1" rowpicker:image="[rel male-1.png]" alt="A boy"> </row>
+  <row label="r2" rowpicker:image="[rel female-1.png]" alt="A girl"> </row>
+</radio>
+<suspend/>
+
+
+</if>
+</if>
+
+
+<exec>
+if N11.ival in [15,16,17]:
+	N11BISRECODE.ival = N11.ival
+	N12BISRECODE.ival = N12.ival
+else:
+	N11BISRECODE.ival = N6.ival
+	N12BISRECODE.ival = N5.ival
+</exec>
+
+
+<number label="N11BISRECODE" size="3" optional="0" verify="range(0,9999)" style="dev" cond="not gv.isSST() and (gv.survey.root.state.dev or gv.survey.root.state.testing)">
+  <title>RECODE AGE : IF N11=(15 OR 16 OR 17) THEN N11BISRECODE=N11 ELSE N11BISRECODE=N6</title>
+  <comment>Please enter a whole number</comment>
+  
+</number>
+<suspend/>
+
+
+<radio label="N12BISRECODE" style="dev" cond="not gv.isSST() and (gv.survey.root.state.dev or gv.survey.root.state.testing)">
+  <title>gender recoding</title>
+  <comment>Select one</comment>
+  <row label="r1">Boy</row>
+  <row label="r2">Girl</row>
+</radio>
+<suspend/>
+
+<term cond="N12BISRECODE.r2">Female</term>
+
+
+<checkbox label="N22" atleast="1" shuffle="rows,groups" uses="rowpicker.15" rowpicker:theme="statement stamp multi" rowpicker:width="450"  rowpicker:height="40"  rowpicker:rowStampHoffset="200">
+  <title>Please select all of the gaming systems that you own</title>
+  <comment>Select all that apply</comment>
+  <group label="g1"> </group>
+  <group label="g2"> </group>
+  <group label="g3"> </group>
+  <group label="g4"> </group>
+  <group label="g5"> </group>
+  <group label="g6"> </group>
+  <group label="g7"> </group>
+  <group label="g8"> </group>
+  <group label="g9"> </group>
+  <group label="g10" randomize="0"> </group>
+
+
+  <row label="r1" groups="g1">Desktop computer / laptop used for playing games</row>
+  <row label="r2" groups="g2">Nintendo DS / DSi / 3DS</row>
+  <row label="r3" groups="g3">Nintendo Wii</row>
+  <row label="r4" groups="g4">PlayStation 3 (PS3)</row>
+  <row label="r5" groups="g4">PlayStation 4 (PS4)</row>
+  <row label="r6" groups="g4">PlayStation Portable (PSP) / PS Vita</row>
+  <row label="r7" groups="g5">Xbox 360</row>
+  <row label="r8" groups="g5">Xbox One</row>
+  <row label="r9" groups="g6">Smartphone (e.g. iPhone, Android phone, etc.)</row>
+  <row label="r10" groups="g7">Tectronix</row>
+  <row label="r11" groups="g8">Tablet (e.g.  iPad,  Android tablet, etc.)</row>
+  <row label="r12" groups="g9">Nintendo Wii U</row>
+  <row label="r13" randomize="0" groups="g10">Other video game system</row>
+  <row label="r14" exclusive="1" randomize="0" groups="g10">None of the above</row>
+
+</checkbox>
+<suspend/>
+
+
+<term cond="N22.r10">Tectronix selected!</term>
+
+<term cond="not ((N22.r1 or N22.r5 or N22.r8) and N22.any)">N22: Has not selected Desktop, PS4 or XboxOne</term>
+
+
+<radio label="N24" type="rating" uses="rowpicker.15" rowpicker:theme="statement single" rowpicker:height="30" rowpicker:width="450" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10">
+  <title>Approximately, how often do you play videogames?</title>
+  <comment>By videogames, please consider games on PC/consoles.</comment>
+  <row label="r1" value="1">Every day or nearly</row>
+  <row label="r2" value="2">At least once a week</row>
+  <row label="r3" value="3">At least once a month</row>
+  <row label="r4" value="4">Less often</row>
+  <row label="r5" value="5">Never</row>
+</radio>
+<suspend/>
+
+<term cond="N24.r5">N24: Never</term>
+
+
+<radio label="N26" uses="rowpicker.15" rowpicker:theme="statement single" rowpicker:height="30" rowpicker:width="450" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10">
+  <title>How many games have you bought (or received as a gift) for your personal use in the last 12 months?</title>
+  <comment>Please only consider games you bought or received on PC/consoles.</comment>
+  <row label="r1">5 or more</row>
+  <row label="r2">3 to 4</row>
+  <row label="r3">1 to 2</row>
+  <row label="r4">0</row>
+</radio>
+<suspend/>
+
+
+<term cond="N26.r4">N24: Zero</term>
+
+
+<!-- ===========================================================================================================
+					AWARENESS AND POSSESSION 
+============================================================================================================= -->
+
+
+
+<checkbox label="N28" atleast="1" uses="rowpicker.15" rowpicker:theme="statement stamp multi" rowpicker:width="270"  rowpicker:height="40" rowpicker:rowStampHoffset="110" rowpicker:rowContainWidth="1650" shuffle="rows">
+  <title>From the following list, please select all the games that you know of.</title>
+  <comment>Select all that apply</comment>
+@GAMES_Duplicates_removed_rows
+  <row label="r999" exclusive="1" randomize="0">None of the above</row>
+</checkbox>
+<suspend/>
+
+<term cond="not (N28.r7 or N28.r9 or N28.r10 or N28.r37)">N28: Doesn't know of "FAR CRY", "GTA", "CALL OF DUTY" or FALLOUT"</term>
+
+<exec>
+p.allgames=[[0,1,2,3,4,5,6,7,8,9],[10],[11],[12,13],[14,15,16,17],[18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35],[36,37,38,39,40,41,42,43,44,45,46],[47,48],[49,50,51,52,53,54,55,56,57,58],[59,60,61,62,63,64,65,66,67,68,69,70],[71,72,73],[74],[75],[76],[77],[78,79],[80],[81,82],[83,84,85],[86,87,88],[89,90,91],[92],[93],[94],[95,96,97],[98,99,100,101,102],[103],[104,105],[106],[107],[108,109],[110],[111,112],[113],[114,115,116],[117],[118,119,120,121,122],[123],[124],[125],[126,127,128]]
+
+for x in N28.rows:
+	if x:
+		for y in p.allgames[x.index]:
+			N30_Dummy.rows[y].val=1
+</exec>
+
+<checkbox label="N30_Dummy" style="dev" cond="not gv.isSST() and (gv.survey.root.state.dev or gv.survey.root.state.testing)">
+  <title>The games displayed to the respondent</title>
+  <comment>Select all that apply</comment>
+@Games_full_list
+</checkbox>
+<suspend/>
+
+
+<checkbox label="N30" atleast="1" rowCond="N30_Dummy[row]" uses="rowpicker.15" rowpicker:theme="statement stamp multi" rowpicker:width="450"  rowpicker:height="40"  rowpicker:rowStampHoffset="200" rowpicker:rowContainWidth="950">
+  <title>From these game series, which titles are you aware of?</title>
+  <comment>Select all that apply</comment>
+@Games_full_list
+  <row label="r999" cond="1" exclusive="1" randomize="0">None of these</row>
+</checkbox>
+<suspend/>
+
+
+<radio label="N32" rowCond="N30[row]" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="900"  btnmatrix:rowContainWidth="900" btnmatrix:autosubmit="1">
+  <title>Which of these games did you personally play?</title>
+  <comment>Select one</comment>
+  <col label="c1">Yes</col>
+  <col label="c2">No</col>
+@Games_full_list
+</radio>
+<suspend/>
+
+
+<radio label="N34" rowCond="N32[row].c1" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="900"  btnmatrix:rowContainWidth="900" btnmatrix:autosubmit="1">
+  <title>Which of these games do you personally own (games that you bought or received as a gift)?</title>
+  <comment>Select one</comment>
+@Games_full_list
+  <col label="c1">Yes</col>
+  <col label="c2">No</col>
+</radio>
+<suspend/>
+
+
+<radio label="N36" cond="N34.c2.any" rowpicker:autoSubmit="1" uses="rowpicker.15" rowpicker:theme="statement single" rowpicker:height="30" rowpicker:width="450" rowpicker:rowContainVgap="10" rowpicker:rowContainHgap="10">
+  <title>Did you own a game from the previous list and do not own it anymore (games that you bought or received as a gift)?</title>
+  <comment>Select one</comment>
+  <row label="r1">Yes</row>
+  <row label="r2">No</row>
+</radio>
+<suspend/>
+
+
+<checkbox label="N37" atleast="1" cond="N36.r1" rowCond="N34[row].c2"  uses="rowpicker.15" rowpicker:theme="statement stamp multi" rowpicker:width="300"  rowpicker:height="40" rowpicker:rowContainType="Horizontal Grid" rowpicker:rowStampHoffset="130" rowpicker:rowContainWidth="1250">
+  <title>Which one(s)?</title>
+  <comment>Select all that apply</comment>
+@Games_full_list
+</checkbox>
+<suspend/>
+
+
+<exec>
+fca=False
+if N28.r9 and not (N34.r50 or N34.r51 or N34.r53 or N37.r50 or N37.r51 or N37.r53):
+	fca=True
+
+
+for y in [49,50,52]:
+	if (N34.rows[y].c1 or N37.rows[y]) and N28.r7:
+		N44.r1.val=1
+for y in [49,50,52]:
+	if (N34.rows[y].c1 or N37.rows[y]) and N28.r10:
+		N44.r2.val=1
+for y in [49,50,52]:
+	if (N34.rows[y].c1 or N37.rows[y]) and N28.r37:
+		N44.r3.val=1
+for y in [49,50,52]:
+	if (N34.rows[y].c1 or N37.rows[y]) and not (N28.r7 or N28.r10 or N28.r37):
+		N44.r4.val=1
+for y in [36]:
+	if (N34.rows[y].c1 or N37.rows[y]) and fca:
+		N44.r5.val=1
+for y in [59,60,61]:
+	if (N34.rows[y].c1 or N37.rows[y]) and fca:
+		N44.r6.val=1
+for y in [118]:
+	if (N34.rows[y].c1 or N37.rows[y]) and fca:
+		N44.r7.val=1
+for y in [36]:
+	if (N34.rows[y].c1 or N37.rows[y]) and not N28.r9:
+		N44.r8.val=1
+for y in [59,60,61]:
+	if (N34.rows[y].c1 or N37.rows[y]) and not N28.r9:
+		N44.r9.val=1
+for y in [118]:
+	if (N34.rows[y].c1 or N37.rows[y]) and not N28.r9:
+		N44.r10.val=1
+for y in [49]:
+	if (N34.rows[y].c1 or N37.rows[y]):
+		N44.r11.val=1
+</exec>
+
+<checkbox label="N44" translateable="0" style="dev" cond="not gv.isSST() and (gv.survey.root.state.dev or gv.survey.root.state.testing)">
+  <title>ONE RESPONDENT CAN BE PART OF MULTIPLE TARGETS, SEE POSSIBLE COMBINATIONS BELOW</title>
+  <comment>Select all that apply</comment>
+  <row label="r1">FC USER (AWARE OF GTA)</row>
+  <row label="r2">FC USER (AWARE OF CALL OF DUTY)</row>
+  <row label="r3">FC USER (AWARE OF FALLOUT)</row>
+  <row label="r4">FC USER (NOT AWARE OF GTA/COD/FALLOUT)</row>
+  <row label="r5">FC POTENTIAL GTA</row>
+  <row label="r6">FC POTENTIAL CALL OF DUTY</row>
+  <row label="r7">FC POTENTIAL FALLOUT</row>
+  <row label="r8">OTHER GTA USER NOT AWARE OF FC</row>
+  <row label="r9">OTHER COD USER NOT AWARE OF FC</row>
+  <row label="r10">OTHER FALLOUT USER NOT AWARE OF FC</row>
+  <row label="r11">FAR CRY PRIMAL USERS</row>
+</checkbox>
+<suspend/>
+
+<term cond="not N44.any">No sectors/segments eligible for!</term>
+
+
+<quota sheet="N44_UK" overquota="noqual" cond="N1.r1" />
+<quota sheet="N44_France" overquota="noqual" cond="N1.r2" />
+<quota sheet="N44_Germany" overquota="noqual" cond="N1.r3" />
+<quota sheet="target_UK" overquota="noqual" cond="N1.r1" />
+<quota sheet="target_France" overquota="noqual" cond="N1.r2" />
+<quota sheet="target_Germany" overquota="noqual" cond="N1.r3" />
+
+<exec>
+ccstr=N1.rows[N1.val].text
+for x in range(len(TARGET.rows)):
+	if hasMarker('/target_'+ccstr+'/target'+str(x+1)):
+		TARGET.val=x
+</exec>
+
+<radio label="TARGET" translateable="0" style="dev" cond="not gv.isSST() and (gv.survey.root.state.dev or gv.survey.root.state.testing)">
+  <title>RECODE AUTO TARGET - ONE CHOICE POSSIBLE</title>
+  <comment>Select one</comment>
+  <row label="r1">FC only</row>
+  <row label="r2">FC + GTA</row>
+  <row label="r3">FC + CoD</row>
+  <row label="r4">FC + Fallout</row>
+  <row label="r5">FC + GTA + CoD</row>
+  <row label="r6">FC + CoD + Fallout</row>
+  <row label="r7">FC + GTA + Fallout</row>
+  <row label="r8">GTA only</row>
+  <row label="r9">CoD only</row>
+  <row label="r10">Fallout only</row>
+  <row label="r11">GTA + CoD</row>
+  <row label="r12">GTA + Fallout</row>
+  <row label="r13">CoD + Fallout</row>
+  <row label="r14">GTA + CoD + Fallout</row>
+</radio>
+<suspend/>
+
+
+<!-- ===========================================================================================================
+					BRAND BAROMETER
+============================================================================================================= -->
+
+
+<pipe label="prodPipe">
+  <case label="p1" cond="TARGET.r1">Far Cry</case>
+  <case label="p2" cond="TARGET.r2">Far Cry<br/>GTA</case>
+  <case label="p3" cond="TARGET.r3">Far Cry<br/>Call Of Duty</case>
+  <case label="p4" cond="TARGET.r4">Far Cry<br/>Fallout</case>
+  <case label="p5" cond="TARGET.r5">Far Cry<br/>GTA<br/>Call Of Duty</case>
+  <case label="p6" cond="TARGET.r6">Far Cry<br/>Call Of Duty<br/>Fallout</case>
+  <case label="p7" cond="TARGET.r7">Far Cry<br/>GTA<br/>Fallout</case>
+  <case label="p8" cond="TARGET.r8">GTA</case>
+  <case label="p9" cond="TARGET.r9">Call Of Duty</case>
+  <case label="p10" cond="TARGET.r10">Fallout</case>
+  <case label="p11" cond="TARGET.r11">GTA<br/>Call Of Duty</case>
+  <case label="p12" cond="TARGET.r12">GTA<br/>Fallout</case>
+  <case label="p13" cond="TARGET.r13">Call Of Duty<br/>Fallout</case>
+  <case label="p14" cond="TARGET.r14">GTA<br/>Call Of Duty<br/>Fallout</case>
+  <case label="p15" cond="1">Undefined</case>
+</pipe>
+
+
+<html label="BB_INTRO" where="survey">You will now be asked about your perception on the following brand(s):<br/><br/>[pipe: prodPipe]</html>
+<suspend/>
+
+
+<random label="N45_N48_Random">
+<if cond="1" randomize="1">
+<radio label="N45" type="rating"  uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1" cond="TARGET.val le 6" rowpicker:autoSubmit="1">
+  <title>Please give a score on a scale of 1 to 10 based on the overall opinion you have of <span style="color: red;">Far Cry</span> as a brand.</title>
+  
+  <comment>10 means that you have a very high opinion of the brand, 1 means that you have a very low opinion of the brand. The scores in between allow you to express your opinion more precisely.</comment>
+
+  <row label="r1" value="1">Very low opinion<br/>1</row>
+  <row label="r2" value="2">2</row>
+  <row label="r3" value="3">3</row>
+  <row label="r4" value="4">4</row>
+  <row label="r5" value="5">5</row>
+  <row label="r6" value="6">6</row>
+  <row label="r7" value="7">7</row>
+  <row label="r8" value="8">8</row>
+  <row label="r9" value="9">9</row>
+  <row label="r10" value="10">Very high opinion<br/>10</row>
+  <row label="r11" value="11" aggregate="0" percentages="0">I don't know</row>
+
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N46" type="rating" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1" cond="TARGET.val in [1,4,6,7,10,11,13]" rowpicker:autoSubmit="1">
+  <title>Please give a score on a scale of 1 to 10 based on the overall opinion you have of <span style="color: darkcyan;">GTA</span> as a brand.</title>
+  <comment>10 means that you have a very high opinion of the brand, 1 means that you have a very low opinion of the brand. The scores in between allow you to express your opinion more precisely.</comment>
+  <row label="r1" value="1">Very low opinion<br/>1</row>
+  <row label="r2" value="2">2</row>
+  <row label="r3" value="3">3</row>
+  <row label="r4" value="4">4</row>
+  <row label="r5" value="5">5</row>
+  <row label="r6" value="6">6</row>
+  <row label="r7" value="7">7</row>
+  <row label="r8" value="8">8</row>
+  <row label="r9" value="9">9</row>
+  <row label="r10" value="10">Very high opinion<br/>10</row>
+  <row label="r11" value="11" aggregate="0" percentages="0">I don't know</row>
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N47" type="rating" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1"  cond="TARGET.val in [2,4,5,8,10,11,13]" rowpicker:autoSubmit="1">
+  <title>Please give a score on a scale of 1 to 10 based on the overall opinion you have of <span style="color: green;">Call Of Duty</span> as a brand.</title>
+  <comment>10 means that you have a very high opinion of the brand, 1 means that you have a very low opinion of the brand. The scores in between allow you to express your opinion more precisely.</comment>
+  <row label="r1" value="1">Very low opinion<br/>1</row>
+  <row label="r2" value="2">2</row>
+  <row label="r3" value="3">3</row>
+  <row label="r4" value="4">4</row>
+  <row label="r5" value="5">5</row>
+  <row label="r6" value="6">6</row>
+  <row label="r7" value="7">7</row>
+  <row label="r8" value="8">8</row>
+  <row label="r9" value="9">9</row>
+  <row label="r10" value="10">Very high opinion<br/>10</row>
+  <row label="r11" value="11" aggregate="0" percentages="0">I don't know</row>
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N48" type="rating" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1" cond="TARGET.val in [3,5,6,9,11,12,13]" rowpicker:autoSubmit="1">
+  <title>Please give a score on a scale of 1 to 10 based on the overall opinion you have of <span style="color: lime;">Fallout</span> as a brand.</title>
+  <comment>10 means that you have a very high opinion of the brand, 1 means that you have a very low opinion of the brand. The scores in between allow you to express your opinion more precisely.</comment>
+  <row label="r1" value="1">Very low opinion<br/>1</row>
+  <row label="r2" value="2">2</row>
+  <row label="r3" value="3">3</row>
+  <row label="r4" value="4">4</row>
+  <row label="r5" value="5">5</row>
+  <row label="r6" value="6">6</row>
+  <row label="r7" value="7">7</row>
+  <row label="r8" value="8">8</row>
+  <row label="r9" value="9">9</row>
+  <row label="r10" value="10">Very high opinion<br/>10</row>
+  <row label="r11" value="11" aggregate="0" percentages="0">I don't know</row>
+</radio>
+<suspend/>
+</if>
+</random>
+
+
+<!-- ===========================================================================================================
+						NPS
+============================================================================================================= -->
+
+
+<random label="N55_N58_Random">
+<if cond="1" randomize="1">
+<radio label="N55" type="rating" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1" cond="TARGET.val le 6" rowpicker:autoSubmit="1">
+  <title>How likely is it that you would recommend <span style="color: red;">Far Cry</span> to a friend or colleague?</title>
+  <comment>10 means that you would extremely likely recommend the brand, 0 means that you would not at all likely recommend the brand. The scores in between allow you to express your opinion more precisely.</comment>
+  <row label="r1" value="0">Not at all likely<br/>0</row>
+  <row label="r2" value="1">1</row>
+  <row label="r3" value="2">2</row>
+  <row label="r4" value="3">3</row>
+  <row label="r5" value="4">4</row>
+  <row label="r6" value="5">5</row>
+  <row label="r7" value="6">6</row>
+  <row label="r8" value="7">7</row>
+  <row label="r9" value="8">8</row>
+  <row label="r10" value="9">9</row>
+  <row label="r11" value="10">Extremely likely<br/>10</row>
+  <row label="r12" value="11" aggregate="0" percentages="0">I don't know</row>
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N56" type="rating" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1" cond="TARGET.val in [1,4,6,7,10,11,13]" rowpicker:autoSubmit="1">
+  <title>How likely is it that you would recommend <span style="color: darkcyan;">GTA</span> to a friend or colleague?</title>
+  <comment>10 means that you would extremely likely recommend the brand, 0 means that you would not at all likely recommend the brand. The scores in between allow you to express your opinion more precisely.</comment>
+  <row label="r1" value="0">Not at all likely<br/>0</row>
+  <row label="r2" value="1">1</row>
+  <row label="r3" value="2">2</row>
+  <row label="r4" value="3">3</row>
+  <row label="r5" value="4">4</row>
+  <row label="r6" value="5">5</row>
+  <row label="r7" value="6">6</row>
+  <row label="r8" value="7">7</row>
+  <row label="r9" value="8">8</row>
+  <row label="r10" value="9">9</row>
+  <row label="r11" value="10">Extremely likely<br/>10</row>
+  <row label="r12" value="11" aggregate="0" percentages="0">I don't know</row>
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N57" type="rating" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1" cond="TARGET.val in [2,4,5,8,10,11,13]" rowpicker:autoSubmit="1">
+  <title>How likely is it that you would recommend <span style="color: green;">Call Of Duty</span> to a friend or colleague?</title>
+  <comment>10 means that you would extremely likely recommend the brand, 0 means that you would not at all likely recommend the brand. The scores in between allow you to express your opinion more precisely.</comment>
+  <row label="r1" value="0">Not at all likely<br/>0</row>
+  <row label="r2" value="1">1</row>
+  <row label="r3" value="2">2</row>
+  <row label="r4" value="3">3</row>
+  <row label="r5" value="4">4</row>
+  <row label="r6" value="5">5</row>
+  <row label="r7" value="6">6</row>
+  <row label="r8" value="7">7</row>
+  <row label="r9" value="8">8</row>
+  <row label="r10" value="9">9</row>
+  <row label="r11" value="10">Extremely likely<br/>10</row>
+  <row label="r12" value="11" aggregate="0" percentages="0">I don't know</row>
+</radio>
+<suspend/>
+</if>
+
+
+
+<if cond="1" randomize="1">
+<radio label="N58" type="rating" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1" cond="TARGET.val in [3,5,6,9,11,12,13]" rowpicker:autoSubmit="1">
+  <title>How likely is it that you would recommend <span style="color: lime;">Fallout</span> to a friend or colleague?</title>
+  <comment>10 means that you would extremely likely recommend the brand, 0 means that you would not at all likely recommend the brand. The scores in between allow you to express your opinion more precisely.</comment>
+  <row label="r1" value="0">Not at all likely<br/>0</row>
+  <row label="r2" value="1">1</row>
+  <row label="r3" value="2">2</row>
+  <row label="r4" value="3">3</row>
+  <row label="r5" value="4">4</row>
+  <row label="r6" value="5">5</row>
+  <row label="r7" value="6">6</row>
+  <row label="r8" value="7">7</row>
+  <row label="r9" value="8">8</row>
+  <row label="r10" value="9">9</row>
+  <row label="r11" value="10">Extremely likely<br/>10</row>
+  <row label="r12" value="11" aggregate="0" percentages="0">I don't know</row>
+</radio>
+<suspend/>
+</if>
+</random>
+
+
+<!-- ===========================================================================================================
+					PROMISE
+============================================================================================================= -->
+
+
+<radio label="N65" type="rating" uses="rowpicker.15" rowpicker:theme="word single" rowpicker:width="70" rowpicker:rowBtnLabelFontSize="14"  rowpicker:rowContainWidth="1050" rowpicker:centerRow="1" cond="TARGET.val le 6" rowpicker:autoSubmit="1">
+  <title>Consider <span style="color: red;">Far Cry</span>. <br/>To what extent do you agree that it describes your opinion about <span style="color: red;">Far Cry</span>?<br/><br/>
+<div class="promise">PROMISE TO BE UPDATED</div></title>
+  <comment>10 means that you totally agree, 1 means that you totally disagree. The scores in between allow you to express your opinion more precisely.</comment>
+  <row label="r1" value="1">Totally Disagree<br/>1</row>
+  <row label="r2" value="2">2</row>
+  <row label="r3" value="3">3</row>
+  <row label="r4" value="4">4</row>
+  <row label="r5" value="5">5</row>
+  <row label="r6" value="6">6</row>
+  <row label="r7" value="7">7</row>
+  <row label="r8" value="8">8</row>
+  <row label="r9" value="9">9</row>
+  <row label="r10" value="10">Totally Agree<br/>10</row>
+  <row label="r11" value="11" aggregate="0" percentages="0">I don't know</row>
+</radio>
+<suspend/>
+
+
+<!-- ===========================================================================================================
+					STATEMENTS
+============================================================================================================= -->
+
+
+<random label="N69_N72_Random">
+<if cond="1" randomize="1">
+<radio label="N69" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="90" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val le 6" btnmatrix:autosubmit="1">
+  <title>Here is a list of statements. <br/>For each of the following statements, to what extent do you agree that it describes <span style="color: red;">Far Cry</span>?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Totally Disagree<br/>1</col>
+  <col label="c2" value="2">2</col>
+  <col label="c3" value="3">3</col>
+  <col label="c4" value="4">4</col>
+  <col label="c5" value="5">5</col>
+  <col label="c6" value="6">6</col>
+  <col label="c7" value="7">7</col>
+  <col label="c8" value="8">8</col>
+  <col label="c9" value="9">9</col>
+  <col label="c10" value="10">Totally Agree<br/>10</col>
+  <col label="c11" value="11" aggregate="0" percentages="0">I don't know</col>
+											
+  <row label="r1">It is a compelling story</row>
+  <row label="r2">It is visually stunning</row>
+  <row label="r3">It is larger than life</row>
+  <row label="r4">The characters are rich with meaning</row>
+  <row label="r5">It feels like it could have happened</row>
+  <row label="r6">It has authentic characters, environments, costumes and weapons</row>
+  <row label="r7">You're part of a brotherhood</row>
+  <row label="r8">It's about breaking the rules and fighting for the greater good of society</row>
+  <row label="r9">You can discover interesting historical places and periods</row>
+  <row label="r10">You're free to explore the world the way you want</row>
+  <row label="r11">You should be smart</row>
+  <row label="r12">You inspire fear and respect</row>
+</radio>
+<suspend/>
+</if>
+
+											
+
+<if cond="1" randomize="1">
+<radio label="N70" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="90" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [1,4,6,7,10,11,13]" btnmatrix:autosubmit="1">
+  <title>Here is a list of statements.<br/>For each of the following statements, to what extent do you agree that it describes <span style="color: darkcyan;">GTA</span>?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Totally Disagree<br/>1</col>
+  <col label="c2" value="2">2</col>
+  <col label="c3" value="3">3</col>
+  <col label="c4" value="4">4</col>
+  <col label="c5" value="5">5</col>
+  <col label="c6" value="6">6</col>
+  <col label="c7" value="7">7</col>
+  <col label="c8" value="8">8</col>
+  <col label="c9" value="9">9</col>
+  <col label="c10" value="10">Totally Agree<br/>10</col>
+  <col label="c11" value="11" aggregate="0" percentages="0">I don't know</col>
+											
+  <row label="r1">It is a compelling story</row>
+  <row label="r2">It is visually stunning</row>
+  <row label="r3">It is larger than life</row>
+  <row label="r4">The characters are rich with meaning</row>
+  <row label="r5">It feels like it could have happened</row>
+  <row label="r6">It has authentic characters, environments, costumes and weapons</row>
+  <row label="r7">You're part of a brotherhood</row>
+  <row label="r8">It's about breaking the rules and fighting for the greater good of society</row>
+  <row label="r9">You can discover interesting historical places and periods</row>
+  <row label="r10">You're free to explore the world the way you want</row>
+  <row label="r11">You should be smart</row>
+  <row label="r12">You inspire fear and respect</row>
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N71" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="90" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [2,4,5,8,10,11,13]" btnmatrix:autosubmit="1">
+  <title>Here is a list of statements. <br/>For each of the following statements, to what extent do you agree that it describes <span style="color: green;">Call Of Duty</span>?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Totally Disagree<br/>1</col>
+  <col label="c2" value="2">2</col>
+  <col label="c3" value="3">3</col>
+  <col label="c4" value="4">4</col>
+  <col label="c5" value="5">5</col>
+  <col label="c6" value="6">6</col>
+  <col label="c7" value="7">7</col>
+  <col label="c8" value="8">8</col>
+  <col label="c9" value="9">9</col>
+  <col label="c10" value="10">Totally Agree<br/>10</col>
+  <col label="c11" value="11" aggregate="0" percentages="0">I don't know</col>
+											
+  <row label="r1">It is a compelling story</row>
+  <row label="r2">It is visually stunning</row>
+  <row label="r3">It is larger than life</row>
+  <row label="r4">The characters are rich with meaning</row>
+  <row label="r5">It feels like it could have happened</row>
+  <row label="r6">It has authentic characters, environments, costumes and weapons</row>
+  <row label="r7">You're part of a brotherhood</row>
+  <row label="r8">It's about breaking the rules and fighting for the greater good of society</row>
+  <row label="r9">You can discover interesting historical places and periods</row>
+  <row label="r10">You're free to explore the world the way you want</row>
+  <row label="r11">You should be smart</row>
+  <row label="r12">You inspire fear and respect</row>
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N72" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="90" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [3,5,6,9,11,12,13]" btnmatrix:autosubmit="1">
+  <title>Here is a list of statements.  <br/>For each of the following statements, to what extent do you agree that it describes <span style="color: lime;">Fallout</span>?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Totally Disagree<br/>1</col>
+  <col label="c2" value="2">2</col>
+  <col label="c3" value="3">3</col>
+  <col label="c4" value="4">4</col>
+  <col label="c5" value="5">5</col>
+  <col label="c6" value="6">6</col>
+  <col label="c7" value="7">7</col>
+  <col label="c8" value="8">8</col>
+  <col label="c9" value="9">9</col>
+  <col label="c10" value="10">Totally Agree<br/>10</col>
+  <col label="c11" value="11" aggregate="0" percentages="0">I don't know</col>
+											
+  <row label="r1">It is a compelling story</row>
+  <row label="r2">It is visually stunning</row>
+  <row label="r3">It is larger than life</row>
+  <row label="r4">The characters are rich with meaning</row>
+  <row label="r5">It feels like it could have happened</row>
+  <row label="r6">It has authentic characters, environments, costumes and weapons</row>
+  <row label="r7">You're part of a brotherhood</row>
+  <row label="r8">It's about breaking the rules and fighting for the greater good of society</row>
+  <row label="r9">You can discover interesting historical places and periods</row>
+  <row label="r10">You're free to explore the world the way you want</row>
+  <row label="r11">You should be smart</row>
+  <row label="r12">You inspire fear and respect</row>
+</radio>
+<suspend/>
+</if>
+</random>
+
+
+<!-- ===========================================================================================================
+					MARKET DRIVERS
+============================================================================================================= -->
+
+
+<random label="N80_N83_Random">
+<if cond="1" randomize="1">
+<radio label="N80" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="90" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val le 6" btnmatrix:autosubmit="1">
+  <title>Here is a new list of statements. <br/>For each of the following statements, to what extent do you agree that it describes <span style="color: red;">Far Cry</span>?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Totally Disagree<br/>1</col>
+  <col label="c2" value="2">2</col>
+  <col label="c3" value="3">3</col>
+  <col label="c4" value="4">4</col>
+  <col label="c5" value="5">5</col>
+  <col label="c6" value="6">6</col>
+  <col label="c7" value="7">7</col>
+  <col label="c8" value="8">8</col>
+  <col label="c9" value="9">9</col>
+  <col label="c10" value="10">Totally Agree<br/>10</col>
+  <col label="c11" value="11" aggregate="0" percentages="0">I don't know</col>
+											
+  <row label="r1">The game mechanics are refreshing and innovative at each episode</row>
+  <row label="r2">The visual graphics set a new standard ahead of other games</row>
+  <row label="r3">The environment offers you a wide range of experiences</row>
+  <row label="r4">The environment feels stunningly realistic</row>
+  <row label="r5">The game and story keep evolving in new ways</row>
+  <row label="r6">Each chapter/story is so unexpected and keeps me waiting for the next one</row>
+  <row label="r7">It challenges you intellectually</row>
+  <row label="r8">Its world is universally appealing to all ages and cultures</row>
+  <row label="r9">Story and characters are always interesting</row>
+  <row label="r10">It is an entertainment franchise with which I can interact in many ways <b>(movie, videogame, comics, ...)</b></row>
+  <row label="r11">It is an entertainment brand that will still be here in 20 years.</row>
+  <row label="r12">It is an inspiring entertainment brand</row>
+</radio>
+<suspend/>
+</if>
+					
+																
+<if cond="1" randomize="1">
+<radio label="N81" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="90" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [1,4,6,7,10,11,13]" btnmatrix:autosubmit="1">
+  <title>Here is a new list of statements. <br/>For each of the following statements, to what extent do you agree that it describes <span style="color: darkcyan;">GTA</span>?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Totally Disagree<br/>1</col>
+  <col label="c2" value="2">2</col>
+  <col label="c3" value="3">3</col>
+  <col label="c4" value="4">4</col>
+  <col label="c5" value="5">5</col>
+  <col label="c6" value="6">6</col>
+  <col label="c7" value="7">7</col>
+  <col label="c8" value="8">8</col>
+  <col label="c9" value="9">9</col>
+  <col label="c10" value="10">Totally Agree<br/>10</col>
+  <col label="c11" value="11" aggregate="0" percentages="0">I don't know</col>
+											
+  <row label="r1">The game mechanics are refreshing and innovative at each episode</row>
+  <row label="r2">The visual graphics set a new standard ahead of other games</row>
+  <row label="r3">The environment offers you a wide range of experiences</row>
+  <row label="r4">The environment feels stunningly realistic</row>
+  <row label="r5">The game and story keep evolving in new ways</row>
+  <row label="r6">Each chapter/story is so unexpected and keeps me waiting for the next one</row>
+  <row label="r7">It challenges you intellectually</row>
+  <row label="r8">Its world is universally appealing to all ages and cultures</row>
+  <row label="r9">Story and characters are always interesting</row>
+  <row label="r10">It is an entertainment franchise with which I can interact in many ways <b>(movie, videogame, comics, ...)</b></row>
+  <row label="r11">It is an entertainment brand that will still be here in 20 years.</row>
+  <row label="r12">It is an inspiring entertainment brand</row>
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N82" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="90" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [2,4,5,8,10,11,13]" btnmatrix:autosubmit="1">
+  <title>Here is a new list of statements. <br/>For each of the following statements, to what extent do you agree that it describes <span style="color: green;">Call Of Duty</span>?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Totally Disagree<br/>1</col>
+  <col label="c2" value="2">2</col>
+  <col label="c3" value="3">3</col>
+  <col label="c4" value="4">4</col>
+  <col label="c5" value="5">5</col>
+  <col label="c6" value="6">6</col>
+  <col label="c7" value="7">7</col>
+  <col label="c8" value="8">8</col>
+  <col label="c9" value="9">9</col>
+  <col label="c10" value="10">Totally Agree<br/>10</col>
+  <col label="c11" value="11" aggregate="0" percentages="0">I don't know</col>
+											
+  <row label="r1">The game mechanics are refreshing and innovative at each episode</row>
+  <row label="r2">The visual graphics set a new standard ahead of other games</row>
+  <row label="r3">The environment offers you a wide range of experiences</row>
+  <row label="r4">The environment feels stunningly realistic</row>
+  <row label="r5">The game and story keep evolving in new ways</row>
+  <row label="r6">Each chapter/story is so unexpected and keeps me waiting for the next one</row>
+  <row label="r7">It challenges you intellectually</row>
+  <row label="r8">Its world is universally appealing to all ages and cultures</row>
+  <row label="r9">Story and characters are always interesting</row>
+  <row label="r10">It is an entertainment franchise with which I can interact in many ways <b>(movie, videogame, comics, ...)</b></row>
+  <row label="r11">It is an entertainment brand that will still be here in 20 years.</row>
+  <row label="r12">It is an inspiring entertainment brand</row>
+</radio>
+<suspend/>
+</if>
+
+
+<if cond="1" randomize="1">
+<radio label="N83" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="90" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [3,5,6,9,11,12,13]" btnmatrix:autosubmit="1">
+  <title>Here is a new list of statements. <br/>For each of the following statements, to what extent do you agree that it describes <span style="color: lime;">Fallout</span>?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Totally Disagree<br/>1</col>
+  <col label="c2" value="2">2</col>
+  <col label="c3" value="3">3</col>
+  <col label="c4" value="4">4</col>
+  <col label="c5" value="5">5</col>
+  <col label="c6" value="6">6</col>
+  <col label="c7" value="7">7</col>
+  <col label="c8" value="8">8</col>
+  <col label="c9" value="9">9</col>
+  <col label="c10" value="10">Totally Agree<br/>10</col>
+  <col label="c11" value="11" aggregate="0" percentages="0">I don't know</col>
+											
+  <row label="r1">The game mechanics are refreshing and innovative at each episode</row>
+  <row label="r2">The visual graphics set a new standard ahead of other games</row>
+  <row label="r3">The environment offers you a wide range of experiences</row>
+  <row label="r4">The environment feels stunningly realistic</row>
+  <row label="r5">The game and story keep evolving in new ways</row>
+  <row label="r6">Each chapter/story is so unexpected and keeps me waiting for the next one</row>
+  <row label="r7">It challenges you intellectually</row>
+  <row label="r8">Its world is universally appealing to all ages and cultures</row>
+  <row label="r9">Story and characters are always interesting</row>
+  <row label="r10">It is an entertainment franchise with which I can interact in many ways <b>(movie, videogame, comics, ...)</b></row>
+  <row label="r11">It is an entertainment brand that will still be here in 20 years.</row>
+  <row label="r12">It is an inspiring entertainment brand</row>
+</radio>
+<suspend/>
+</if>
+</random>
+
+
+<!-- ===========================================================================================================
+					ATTACHMENT
+============================================================================================================= -->
+
+
+
+<random label="N91_N97_Random">
+<if cond="1" randomize="1">
+
+<radio label="N91" shuffle="rows" type="rating" uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900"
+btnmatrix:colBtnWidth="180" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val le 6" btnmatrix:autosubmit="1">
+  <title>Concerning <span style="color: red;">Far Cry</span> license, do you agree or not with the following statements?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Strongly disagree</col>
+  <col label="c2" value="2">Somewhat disagree</col>
+  <col label="c3" value="3">Neither agree nor disagree</col>
+  <col label="c4" value="4">Somewhat agree</col>
+  <col label="c5" value="5">Strongly agree</col>
+  <row label="r1">If a new episode of the license was released, I would fully trust its quality</row>
+  <row label="r2" cond="N44.r1 or N44.r2 or N44.r3 or N44.r4"><!--IF USER (N44=1 TO 4) -->The license has never disappointed me</row>
+  <row label="r3" cond="N44.r1 or N44.r2 or N44.r3 or N44.r4"><!--IF USER (N44=1 TO 4) -->I feel very attached to this license</row>
+</radio>
+<suspend/>
+</if>
+
+					
+<if cond="1" randomize="1">
+<radio label="N93" shuffle="rows" type="rating"  uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="180" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [1,4,6,7,10,11,13]" btnmatrix:autosubmit="1">
+  <title>Concerning <span style="color: darkcyan;">GTA</span>, do you agree or not with the following statements?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Strongly disagree</col>
+  <col label="c2" value="2">Somewhat disagree</col>
+  <col label="c3" value="3">Neither agree nor disagree</col>
+  <col label="c4" value="4">Somewhat agree</col>
+  <col label="c5" value="5">Strongly agree</col>
+  <row label="r1">If a new episode of the license was released, I would fully trust its quality</row>
+  <row label="r2" cond="N34.r37.c1 or N37.r37">The license has never disappointed me</row>
+  <row label="r3" cond="N34.r37.c1 or N37.r37">I feel very attached to this license</row>
+</radio>
+<suspend/>
+</if>
+
+				
+<if cond="1" randomize="1">
+<radio label="N95" shuffle="rows" type="rating"  uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="180" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [2,4,5,8,10,11,13]" btnmatrix:autosubmit="1">
+  <title>Concerning <span style="color: green;">Call Of Duty</span>, do you agree or not with the following statements?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Strongly disagree</col>
+  <col label="c2" value="2">Somewhat disagree</col>
+  <col label="c3" value="3">Neither agree nor disagree</col>
+  <col label="c4" value="4">Somewhat agree</col>
+  <col label="c5" value="5">Strongly agree</col>
+  <row label="r1">If a new episode of the license was released, I would fully trust its quality</row>
+  <row label="r2" cond="N34.r60.c1 or N37.r60 or N34.r61.c1 or N37.r61 or N34.r62.c1 or N37.r62">The license has never disappointed me</row>
+  <row label="r3" cond="N34.r60.c1 or N37.r60 or N34.r61.c1 or N37.r61 or N34.r62.c1 or N37.r62">I feel very attached to this license</row>
+</radio>
+<suspend/>
+</if>
+
+					
+<if cond="1" randomize="1">
+<radio label="N97" shuffle="rows" type="rating"  uses="btnmatrix.15" btnmatrix:theme="text" btnmatrix:centerCol="1" btnmatrix:colContainWidth="1050"  btnmatrix:rowContainWidth="900" btnmatrix:colBtnWidth="180" btnmatrix:colBtnHeight="90" btnmatrix:colBtnLabelFontSize="16" btnmatrix:rowBtnLabelFontSize="18" cond="TARGET.val in [3,5,6,9,11,12,13]" btnmatrix:autosubmit="1">
+  <title>Concerning <span style="color: lime;">Fallout</span>, do you agree or not with the following statements?</title>
+  <comment>Select one</comment>
+  <col label="c1" value="1">Strongly disagree</col>
+  <col label="c2" value="2">Somewhat disagree</col>
+  <col label="c3" value="3">Neither agree nor disagree</col>
+  <col label="c4" value="4">Somewhat agree</col>
+  <col label="c5" value="5">Strongly agree</col>
+  <row label="r1">If a new episode of the license was released, I would fully trust its quality</row>
+  <row label="r2" cond="N34.r119.c1 or N37.r119">The license has never disappointed me</row>
+  <row label="r3" cond="N34.r119.c1 or N37.r119">I feel very attached to this license</row>
+</radio>
+<suspend/>
+</if>
+</random>
+
+
+<term cond="timeSpent() lt 1 and not gv.isSST()" markers="speedsterTerminate" incidence="0">Speedster</term>
+
+<marker name="qualified"/>
+
+</survey>
