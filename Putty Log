@@ -1,0 +1,463 @@
+Translation_matrix11may19_FR_V1
+https://surveys.globaltestmarket.com/survey/selfserve/1ab6/419188/temp-edit-live?list=0&sn=419196&decLang=french&list=0
+
+http://surveys.globaltestmarket.com/survey/selfserve/1ab6/419188/temp-edit-live?list=0&sn=419198&decLang=spanish&list=0
+
+
+http://surveys.globaltestmarket.com/survey/selfserve/1ab6/422437?list=0
+
+
+login as: vibhuti.narayansingh
+vibhuti.narayansingh@gmila.decipherinc.com's password:
+Last login: Thu Apr 28 05:16:25 2016 from 14.141.248.226
+Your password will expire and must be changed before:  Apr 18, 2017
+Welcome to the BRAND NEW (May 2015) surveys.globaltestmarket.com
+/home/vibhuti.narayansingh
+[vibhuti.narayansingh@gemini.decipherinc ~]$ cd.
+-bash: cd.: command not found
+[vibhuti.narayansingh@gemini.decipherinc ~]$ cd /home/gmi/v2/selfserve/1ab6/419188/temp-edit-live                                                                       [vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation_matrix11may19_FR_V1.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Cannot read Translation_matrix11may19_FR_V1.xls
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation_matrix11may19_FR_V2.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Row 13: refers to invalid label samplesources,0,invalid
+Row 14: refers to invalid label samplesources,0,completed
+Row 15: refers to invalid label samplesources,0,inuse
+Row 16: refers to invalid label samplesources,0,exit:terminated,cdata
+Row 17: refers to invalid label samplesources,0,exit:qualified,cdata
+Row 18: refers to invalid label samplesources,0,exit:overquota,cdata
+Changed 451 texts, and 0 duplicates. 368 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/french.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ ^C
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation_matrix11may19_FR_V3.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 22 texts, and 0 duplicates. 803 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/french.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation_matrix11may19_FR_V_3.xls
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+825 original texts saved to Translation_matrix11may19_FR_V_3.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation_matrix11may19_FR_V_31.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 22 texts, and 0 duplicates. 803 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/french.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation_matrix11may16_ES_V_1.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 501 texts, and 0 duplicates. 324 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/french.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation_matrix11may19_FR_V_31.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 501 texts, and 0 duplicates. 324 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/french.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lspanish . Translation_matrix11may16_ES_V_1.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 479 texts, and 0 duplicates. 346 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/spanish.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$
+
+
+
+
+
+login as: vibhuti.narayansingh
+vibhuti.narayansingh@gmila.decipherinc.com's password:
+Last login: Thu May 19 04:01:42 2016 from 14.141.248.226
+Your password will expire and must be changed before:  Apr 18, 2017
+Welcome to the BRAND NEW (May 2015) surveys.globaltestmarket.com
+/home/vibhuti.narayansingh
+[vibhuti.narayansingh@gemini.decipherinc ~]$ cd /home/gmi/v2/selfserve/1ab6/419188
+[vibhuti.narayansingh@gemini.decipherinc 419188]$ xlate --dupes -lfrench . Translation_matrix11may19_FR_V4.xls
+Assuming . refers to selfserve/1ab6/419188
+819 original texts saved to Translation_matrix11may19_FR_V4.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 419188]$ xlate --dupes -lfrench . Translation_matrix11may19_FR_V4.xls
+Assuming . refers to selfserve/1ab6/419188
+File Translation_matrix11may19_FR_V4.xls exists -- overwrite? (Y/N) Y
+819 original texts saved to Translation_matrix11may19_FR_V4.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 419188]$ xlate --dupes -lfrench . Translation11may1_FR_V4.xls
+Assuming . refers to selfserve/1ab6/419188
+819 original texts saved to Translation11may1_FR_V4.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 419188]$ cd /home/gmi/v2/selfserve/1ab6/419188/temp-edit-live
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation11may1_FR_V4.xls
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+825 original texts saved to Translation11may1_FR_V4.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lfrench . Translation11may1_FR_V4.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 1 texts, and 0 duplicates. 824 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/french.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lspanish  . Translation_matrix11may16_ES_V_1.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Row 8: refers to invalid label sl,cdata
+Changed 0 texts, and 0 duplicates. 824 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/spanish.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lspanish  . Translation_matrix11may16_ES_V_11.xls
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+825 original texts saved to Translation_matrix11may16_ES_V_11.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lspanish  . Translation_matrix11may16_ES_V_11.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 1 texts, and 0 duplicates. 824 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/spanish.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$
+
+
+login as: vibhuti.narayansingh
+vibhuti.narayansingh@gmila.decipherinc.com's password:
+Last login: Fri May 20 07:19:05 2016 from 14.141.248.226
+Your password will expire and must be changed before:  Apr 18, 2017
+Welcome to the BRAND NEW (May 2015) surveys.globaltestmarket.com
+/home/vibhuti.narayansingh
+[vibhuti.narayansingh@gemini.decipherinc ~]$ cd /home/gmi/v2/selfserve/1ab6/4159                                                                                        75
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench .TRFran_V2_FR-FR.XLS .
+Cannot load survey .TRFran_V2_FR-FR.XLS
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench .TRFran_V2_FR-FR1.XLS
+xlate -- import/export translation Excel worksheets
+Usage:
+   xlate [--dupes] <survey> <translation.xls>
+   xlate <survey> <translation.xls> <new survey.xml>
+
+Zip file export (translation + *.html)
+   xlate <survey> <translation.zip>
+   xlate <survey> <translation.zip> <new survey>
+
+The first format will read all survey's text resources and write them
+to translation.xls.
+
+The second format will take the existing survey, load in the changes
+form translation.xls (warning about changed original texts) and write
+out a new file.
+
+Note that if using just a spreadsheet, the first argument is a survey
+name (e.g. demo/recode) but the third is a survey.xml location (e.g.
+demo/recode/survey-translated.xml) or an existing survey path.
+
+If you are using zip file bundles, the third argument must be an
+existing survey.
+
+You will be prompted before files are overwritten.
+
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ cd /home/gmi/v2/selfserve/1ab6/415975
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench . TRFran_V2_FR-FR.XLS.
+Assuming . refers to selfserve/1ab6/415975
+679 original texts saved to TRFran_V2_FR-FR.XLS.. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench . TRFran_V2_FR-FR23may1.xls
+Assuming . refers to selfserve/1ab6/415975
+679 original texts saved to TRFran_V2_FR-FR23may1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench . TRFran_V2_FR-FR23may.xls .
+Assuming . refers to selfserve/1ab6/415975
+Assuming . refers to selfserve/1ab6/415975
+Cannot read TRFran_V2_FR-FR23may.xls
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench . TRFran_V2_FR-FR23may.xls.
+Assuming . refers to selfserve/1ab6/415975
+679 original texts saved to TRFran_V2_FR-FR23may.xls.. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench . TRFran_V2_FR-FR23may_V2.xls
+Assuming . refers to selfserve/1ab6/415975
+679 original texts saved to TRFran_V2_FR-FR23may_V2.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench . TRFran_V2_FR-FR23may_V2.xls.
+Assuming . refers to selfserve/1ab6/415975
+679 original texts saved to TRFran_V2_FR-FR23may_V2.xls.. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ cd /home/gmi/v2/selfserve/1ab6/415975
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate --dupes -lfrench . TRFran_V2_FR-FR23may_V2.xls.
+Assuming . refers to selfserve/1ab6/415975
+File TRFran_V2_FR-FR23may_V2.xls. exists -- overwrite? (Y/N) n
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ xlate /home/gmi/v2/selfserve/1ab6/415975
+xlate -- import/export translation Excel worksheets
+Usage:
+   xlate [--dupes] <survey> <translation.xls>
+   xlate <survey> <translation.xls> <new survey.xml>
+
+Zip file export (translation + *.html)
+   xlate <survey> <translation.zip>
+   xlate <survey> <translation.zip> <new survey>
+
+The first format will read all survey's text resources and write them
+to translation.xls.
+
+The second format will take the existing survey, load in the changes
+form translation.xls (warning about changed original texts) and write
+out a new file.
+
+Note that if using just a spreadsheet, the first argument is a survey
+name (e.g. demo/recode) but the third is a survey.xml location (e.g.
+demo/recode/survey-translated.xml) or an existing survey path.
+
+If you are using zip file bundles, the third argument must be an
+existing survey.
+
+You will be prompted before files are overwritten.
+
+[vibhuti.narayansingh@gemini.decipherinc 415975]$ ^C
+[vibhuti.narayansingh@gemini.decipherinc 415975]$
+
+//////////////////////////////
+login as: vibhuti.narayansingh
+vibhuti.narayansingh@gmila.decipherinc.com's password:
+Last login: Mon May 23 07:33:45 2016 from 14.141.248.226
+Your password will expire and must be changed before:  Apr 18, 2017
+Welcome to the BRAND NEW (May 2015) surveys.globaltestmarket.com
+/home/vibhuti.narayansingh
+[vibhuti.narayansingh@gemini.decipherinc ~]$ cd /home/gmi/v2/selfserve/1ab6/419188/temp-edit-live
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -ltraditionalchinese . TrHK_V1.xls
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+825 original texts saved to TrHK_V1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -ltraditionalchinese . Translation_HK_V1.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Row 8: refers to invalid label sl,cdata
+Row 83, BA2_[loopvar: label],title: original text has changed (replacing anyway)
+Changed 477 texts, and 0 duplicates. 347 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/traditionalchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -ltraditionalchinese . Translation_HK_V2.xls
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+825 original texts saved to Translation_HK_V2.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -ltraditionalchinese . Translation_HK_V2.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 2 texts, and 0 duplicates. 823 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/traditionalchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lsimplifiedchinese . Translation_CK_down.xls
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+825 original texts saved to Translation_CK_down.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lsimplifiedchinese . Translation_CH_V1.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Row 8: refers to invalid label sl,cdata
+Row 83, BA2_[loopvar: label],title: original text has changed (replacing anyway)
+Changed 498 texts, and 0 duplicates. 326 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/simplifiedchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lsimplifiedchinese . Translation_CH_V2.xls
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+825 original texts saved to Translation_CH_V2.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lsimplifiedchinese . Translation_CH_V2.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 0 texts, and 0 duplicates. 825 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/simplifiedchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lsimplifiedchinese . Translation_HK_V2.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 482 texts, and 0 duplicates. 343 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/simplifiedchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lsimplifiedchinese . Translation_CH_V1.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Row 8: refers to invalid label sl,cdata
+Row 83, BA2_[loopvar: label],title: original text has changed (replacing anyway)
+Changed 481 texts, and 0 duplicates. 343 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/simplifiedchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$ xlate --dupes -lsimplifiedchinese . Translation_CH_V2.xls .
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Assuming . refers to selfserve/1ab6/419188/temp-edit-live
+Changed 1 texts, and 0 duplicates. 824 were identical with the XLS file
+File selfserve/1ab6/419188/temp-edit-live/simplifiedchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc temp-edit-live]$
+/////////////////////////////////////////////////////////
+login as: vibhuti.narayansingh
+vibhuti.narayansingh@gmila.decipherinc.com's password:
+Last login: Tue Jun 28 05:51:17 2016 from 203.122.28.130
+Your password will expire and must be changed before:  Apr 18, 2017
+Welcome to the BRAND NEW (May 2015) surveys.globaltestmarket.com
+/home/vibhuti.narayansingh
+[vibhuti.narayansingh@gemini.decipherinc ~]$ cd /home/gmi/v2/selfserve/1ab6/429734                                                                                      [vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lgerman . Tr_german_28june.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 93 texts, and 0 duplicates. 729 were identical with the XLS file
+File selfserve/1ab6/429734/german.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -litalian . Tr_italian_28june.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 93 texts, and 0 duplicates. 729 were identical with the XLS file
+File selfserve/1ab6/429734/italian.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lspanish . Tr_spanish_28june.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 93 texts, and 0 duplicates. 729 were identical with the XLS file
+File selfserve/1ab6/429734/spanish.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lthai . Tr_thai_28june_v1.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 96 texts, and 0 duplicates. 726 were identical with the XLS file
+File selfserve/1ab6/429734/thai.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lsimplifiedchinese . Tr_simplifiedchinese_28june.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 51 texts, and 0 duplicates. 771 were identical with the XLS file
+File selfserve/1ab6/429734/simplifiedchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -ltraditionalchinese . Tr_traditionalchinese_28june.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 93 texts, and 0 duplicates. 729 were identical with the XLS file
+File selfserve/1ab6/429734/traditionalchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$
+
+
+/////////////////////////////////////////////////////////////////
+login as: vibhuti.narayansingh
+vibhuti.narayansingh@gmila.decipherinc.com's password:
+Last login: Tue Jul  5 06:44:46 2016 from 203.122.28.130
+Your password will expire and must be changed before:  Apr 18, 2017
+Welcome to the BRAND NEW (May 2015) surveys.globaltestmarket.com
+/home/vibhuti.narayansingh
+[vibhuti.narayansingh@gemini.decipherinc ~]$ cd /home/gmi/v2/selfserve/1ab6/429734
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lthai . Trthai_07V1.xls
+Assuming . refers to selfserve/1ab6/429734
+833 original texts saved to Trthai_07V1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lthai . Trthai_07V1.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 4 texts, and 0 duplicates. 829 were identical with the XLS file
+File selfserve/1ab6/429734/thai.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -ltraditionalchinese . Trtraditionalchinese_07V1.xls
+Assuming . refers to selfserve/1ab6/429734
+833 original texts saved to Trtraditionalchinese_07V1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -ltraditionalchinese . Trtraditionalchinese_07V1.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 4 texts, and 0 duplicates. 829 were identical with the XLS file
+File selfserve/1ab6/429734/traditionalchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lfrench Trfrench_07V1.xls .
+Cannot load survey Trfrench_07V1.xls
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lfrench Trfrench_07V1.xls
+xlate -- import/export translation Excel worksheets
+Usage:
+   xlate [--dupes] <survey> <translation.xls>
+   xlate <survey> <translation.xls> <new survey.xml>
+
+Zip file export (translation + *.html)
+   xlate <survey> <translation.zip>
+   xlate <survey> <translation.zip> <new survey>
+
+The first format will read all survey's text resources and write them
+to translation.xls.
+
+The second format will take the existing survey, load in the changes
+form translation.xls (warning about changed original texts) and write
+out a new file.
+
+Note that if using just a spreadsheet, the first argument is a survey
+name (e.g. demo/recode) but the third is a survey.xml location (e.g.
+demo/recode/survey-translated.xml) or an existing survey path.
+
+If you are using zip file bundles, the third argument must be an
+existing survey.
+
+You will be prompted before files are overwritten.
+
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lfrench . Trfrench_07V1.xls
+Assuming . refers to selfserve/1ab6/429734
+833 original texts saved to Trfrench_07V1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lfrench . Trfrench_07V1.xls .
+
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 4 texts, and 0 duplicates. 829 were identical with the XLS file
+File selfserve/1ab6/429734/french.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lgerman . Trgerman_07V1.xls
+Assuming . refers to selfserve/1ab6/429734
+833 original texts saved to Trgerman_07V1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lgerman . Trgerman_07V1.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 4 texts, and 0 duplicates. 829 were identical with the XLS file
+File selfserve/1ab6/429734/german.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lspanish . Trspanish_07V1.xls
+Assuming . refers to selfserve/1ab6/429734
+833 original texts saved to Trspanish_07V1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lspanish . Trspanish_07V1.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 4 texts, and 0 duplicates. 829 were identical with the XLS file
+File selfserve/1ab6/429734/spanish.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -litalian . Tritalian_07V1.xls
+Assuming . refers to selfserve/1ab6/429734
+833 original texts saved to Tritalian_07V1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -litalian . Tritalian_07V1.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 4 texts, and 0 duplicates. 829 were identical with the XLS file
+File selfserve/1ab6/429734/italian.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lsimplifiedchinese . Trsimplifiedchinese_07V1.xls
+Assuming . refers to selfserve/1ab6/429734
+833 original texts saved to Trsimplifiedchinese_07V1.xls. 0 dupes omitted. Skipped 0 texts for other languages.
+
+WARNING: Remember to use --dupes option when importing as well to AVOID replacing dupes!
+
+[vibhuti.narayansingh@gemini.decipherinc 429734]$ xlate --dupes -lsimplifiedchinese . Trsimplifiedchinese_07V1.xls .
+Assuming . refers to selfserve/1ab6/429734
+Assuming . refers to selfserve/1ab6/429734
+Changed 4 texts, and 0 duplicates. 829 were identical with the XLS file
+File selfserve/1ab6/429734/simplifiedchinese.xml saved.
+[vibhuti.narayansingh@gemini.decipherinc 429734]$
+
+
