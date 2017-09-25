@@ -169,5 +169,49 @@ CurrDateEnter.val=date1.replace("&amp;#47;", "/")
 
 <suspend/>
 
+*********************************************************************************
+*********************************************************************************
+********************dublicate and sequential check**************************************
+*********************************************************************************
+*********************************************************************************
+<exec when="init">
+def SequenceCheck(qid):
+	row_count=len(qid.rows)
+	for r in qid.rows:
+		if not r.val:
+			if r.index==(row_count-1):
+				break
+			elif qid.rows[r.index+1].val:
+				error(res.SequenceError)
 
+def DuplicateCheck(qid):
+	for r in qid.rows:
+			for r1 in qid.rows:
+				if r.index==r1.index:
+					pass				
+				elif r:
+					if str(r.val).lower()==str(r1.val).lower():
+						error(res.DuplicateError)
+</exec>
 
+<suspend/>
+
+<text 
+  label="E6_ADVENTUROUS_BRANDS"
+  optional="0"
+  size="40">
+  <title>In the boxes below, please write in all the brands or companies you associate with being adventurous. These can be any brands or companies, not just around travel.</title>
+  <comment><i>Please write in the names of brands using the text boxes below</i></comment>
+  <validate>
+SequenceCheck(E6_ADVENTUROUS_BRANDS)
+DuplicateCheck(E6_ADVENTUROUS_BRANDS)
+  </validate>
+
+  <row label="r1"/>
+  <row label="r2" optional="1"/>
+  <row label="r3" optional="1"/>
+  <row label="r4" optional="1"/>
+  <row label="r5" optional="1"/>
+</text>
+
+<suspend/>
