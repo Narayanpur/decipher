@@ -1,0 +1,168 @@
+<radio 
+  label="Q47_shuffle"
+  optional="1"
+  shuffle="rows"
+  where="execute,survey,notdp">
+  <title>HIDDEN: For shuffling only</title>
+  <row label="r1">Alimta (pemetrexed) <i>(in nonsquamous NSCLC)</i></row>
+  <row label="r2">Cyramza (ramucirumab) + docetaxel</row>
+  <row label="r3" cond="0">Tarceva (erlotinib)</row>
+  <row label="r4">Taxotere (docetaxel)</row>
+  <row label="r5">Vargatef (nintedanib) + docetaxel <i>(in adenocarcinoma only)</i></row>
+  <row label="r6" cond="0">Opdivo (nivolumab)</row>
+  <row label="r7" cond="0">Keytruda (pembrolizumab)</row>
+  <row label="r8">Gemcitabine (e.g. Gemzar)</row>
+  <row label="r9">Vinorelbine (e.g. Navelbine)</row>
+  <row label="r10">Avstin (bevacizumab) + chemotherapy (in <b><i>nonsquamous</i></b> NSCLS)</row>
+  <row label="r11">Gemzar (gemcitabine)</row>
+  <row label="r12">Abraxane (Albumin-bound paclitaxel)</row>
+</radio>
+
+<exec>
+p.Q47it = 0
+</exec>
+
+<exec when="flow">
+p.Q47it = 0
+</exec>
+
+<suspend/>
+
+<loop label="lq47" randomizeChildren="1" suspend="0" vars="lattr">
+  <block label="blq47">
+    <radio 
+    label="Q47_[loopvar: label]"
+    shuffle="rows"
+    shuffleBy="Q47_shuffle"
+    ss:questionClassNames="hide-repeating-text"
+    type="rating">
+      <title>Using the scale below, please indicate the extent to which you <b>agree or disagree</b> that the statements in <span class="blue">blue</span> describe each of the products listed, <b>in patients for whom you have determined that <u>chemotherapy</u> is the best approach:</b>
+<br /><br /><i>Please rate each product across both histologies unless otherwise noted.</i></title>
+      <comment>Select one in each row</comment>
+      <style name="question.after" wrap="ready"><![CDATA[
+$ (".hide-repeating-text:gt(0)").addClass("hideQuestionText followUpQuestion");
+]]></style>
+      <group label="g1"><span class="blue">[loopvar: lattr]</span></group>
+      <col label="c1" value="1">Strongly<br /> disagree</col>
+      <col label="c2" value="2">Slightly<br /> disagree</col>
+      <col label="c3" value="3">Neither<br /> agree or<br /> disagree</col>
+      <col label="c4" value="4">Slightly<br /> agree</col>
+      <col label="c5" value="5">Strongly<br /> agree</col>
+      <row label="r1" cond="not([loopvar: label] in [1,5,16]) and Q3.r2.ival gt 0" alt="Alimta (pemetrexed) (in nonsquamous NSCLC)" groups="g1">[pipe: pipeQ44_1]</row>
+      <row label="r2" cond="Q3.r4.ival gt 0" alt="Cyramza (ramucirumab) + docetaxel" groups="g1">[pipe: pipeQ44_2]</row>
+      <row label="r3" cond="Q3.r8.ival gt 0 and 0" alt="Tarceva (erlotinib)" groups="g1">[pipe: pipe_Tarceva]</row>
+      <row label="r4" cond="not([loopvar: label] in [10,6] and CO.SE) and Q3.r10.ival gt 0" alt="Taxotere (docetaxel)" groups="g1">[pipe: pipeQ44_4]</row>
+      <row label="r5" cond="not([loopvar: label] in [1,5,10]) and CO.any and not CO.US and Q3.r11.ival gt 0" groups="g1">Nintedanib (Vargatef) + docetaxel <i>(in adenocarcinoma only)</i></row>
+      <row label="r6" cond="Q3.r7.ival gt 0 and 0" alt="Opdivo (nivolumab)" groups="g1">[pipe: pipeQ46_6]</row>
+      <row label="r7" cond="Q3.r15.ival gt 0  and 0" alt="US: Keytruda (pembrolizumab) OUS: Pembrolizumab (Keytruda)" groups="g1">[pipe: pipeQ45_7]</row>
+      <row label="r8" cond="(CO.NL or CO.AT) and Q3.r5.ival gt 0" groups="g1">Gemcitabine (e.g. Gemzar)</row>
+      <row label="r9" cond="CO.AT and Q3.r14.ival gt 0" groups="g1">Vinorelbine (e.g. Navelbine)</row>
+      <row label="r10" cond="Q3.r3.ival gt 0" groups="g1">Avastin (bevacizumab) + chemotherapy (in <b><i> <span class="nonsquamous">nonsquamous</span></i></b> NSCLS)</row>
+      <row label="r11" cond="Q3.r5.ival gt 0" groups="g1">Gemzar (gemcitabine)</row>
+      <row label="r12" cond="Q3.r1.ival gt 0" groups="g1">Abraxane (Albumin-bound paclitaxel)</row>
+    </radio>
+
+    <suspend cond="p.Q47it % 3 == 2"/>
+
+    <exec>
+p.Q47it = p.Q47it + 1
+    </exec>
+  </block>
+
+  <looprow label="1" cond="0">
+    <loopvar name="lattr">This therapy offers patients a meaningful improvement in survival for metastatic <span class="squamous">squamous</span> NSCLC patients who have progressed on or after platinum-based therapy</loopvar>
+  </looprow>
+
+  <looprow label="10" cond="0">
+    <loopvar name="lattr">This therapy offers patients a meaningful improvement in survival for metastatic <span class="nonsquamous">nonsquamous</span> NSCLC patients who have progressed on or after platinum-based therapy</loopvar>
+  </looprow>
+
+  <looprow label="2" cond="1">
+    <loopvar name="lattr">I would <b>recommend this treatment regimen to other physicians</b> (for example, at a tumor board) if they had a choice to make in selecting a <b>chemotherapy-based regimen</b> for a performance status 0/1 patient with metastatic NSCLC who had previously progressed on or after a platinum-based therapy</loopvar>
+  </looprow>
+
+  <looprow label="3" cond="0">
+    <loopvar name="lattr">This treatment has side effects that are manageable</loopvar>
+  </looprow>
+
+  <looprow label="5" cond="not hModule.r1">
+    <loopvar name="lattr">In regards to treating metastatic <span class="squamous">squamous</span> NSCLC patients who have progressed on or after platinum-based therapy, I believe that the benefits of this therapy (survival benefit) outweigh the risks (tolerability, side effects)</loopvar>
+  </looprow>
+
+  <looprow label="6" cond="1">
+    <loopvar name="lattr">In regards to treating metastatic <span class="nonsquamous">nonsquamous</span> NSCLC patients who have progressed on or after platinum-based therapy, I believe that the benefits of this therapy (survival benefit) outweigh the risks (tolerability, side effects)</loopvar>
+  </looprow>
+
+  <looprow label="11" cond="1">
+    <loopvar name="lattr">This product/regimen is endorsed by <b>nationally or internationally recognized</b> thoracic cancer thought leaders for patients who have progressed on or after platinum-based therapy</loopvar>
+  </looprow>
+
+  <looprow label="12" cond="CO.US">
+    <loopvar name="lattr">Physicians I respect <b>regionally or locally</b> recommend this product/regimen for patients who have progressed on or after platinum-based therapy</loopvar>
+  </looprow>
+
+  <looprow label="14" cond="0">
+    <loopvar name="lattr">This therapy allows me to better control my patient’s disease through delaying tumor growth and improving survival</loopvar>
+  </looprow>
+
+  <looprow label="15" cond="CO.US and 0">
+    <loopvar name="lattr">This is a product I would use for the treatment of metastatic <span class="nonsquamous">nonsquamous</span> NSCLC patients who have progressed on or after platinum-based therapy when I prefer to use chemotherapy</loopvar>
+  </looprow>
+
+  <looprow label="16" cond="CO.US and 0">
+    <loopvar name="lattr">This is a product I would use for the treatment of metastatic <span class="squamous">squamous</span> NSCLC patients who have progressed on or after platinum-based therapy when I prefer to use chemotherapy</loopvar>
+  </looprow>
+
+  <looprow label="17" cond="1">
+    <loopvar name="lattr">This is my <b>preferred chemotherapy-based treatment</b> for metastatic NSCLC patients who have progressed on or after platinum-based therapy</loopvar>
+  </looprow>
+</loop>
+
+<suspend/>
+
+<exec>
+"""
+TO BE ADJUSTED FOR THE NEXT WAVE!!!!!!!!!!!!!
+---------------------------------------------
+"""
+
+'''
+index 0 -&gt; label 1
+index 1 -&gt; label 10
+index 2 -&gt; label 2
+index 3 -&gt; label 3
+index 4 -&gt; label 4 - cond 0
+index 5 -&gt; label 5
+index 6 -&gt; label 6
+index 7 -&gt; label 7 - cond 0
+index 8 -&gt; label 8 - cond 0
+index 9 -&gt; label 9 - cond 0
+index 10 -&gt; label 11
+index 11 -&gt; label 12
+index 12 -&gt; label 14
+index 13 -&gt; label 15
+index 14 -&gt; label 16
+
+
+'''
+attr_map = [1,10,2,3,5,6,11,12,14,15,16,17]
+
+arr1 = []
+
+for x in lq47_expanded.order:
+	arr1.append(attr_map[x])
+print lq47_expanded.order
+
+
+print arr1
+hq47LoopOrder.val = str(arr1)
+</exec>
+
+<text 
+  label="hq47LoopOrder"
+  size="60"
+  where="execute,survey,report">
+  <title>Hidden: Order of the attributes shown in Q47.</title>
+</text>
+
+<suspend/>
