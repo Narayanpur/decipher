@@ -1,0 +1,173 @@
+**************Add timer on the question*************************
+<exec>
+Webstart.val = time.strftime("%Y-%m-%dT%H:%M:%S")
+</exec>
+
+<suspend/>
+
+<html label="InfoHYP" cond="Quota_Cell_Final.r2" where="survey"><span style="color: black;">In this section, we would like you to visit a <strong>Purina Pro Plan</strong> website and obtain your reactions to the website experience.</span><br /><span style="color: black;">&amp;nbsp;</span><br /><span style="color: black;">This website is in the development phase and is provided for <strong>testing purposes only</strong>. The website includes a short video, a $1 Million Westminster Dog Show Bracket Challenge event and a registration form. We would like you to visit the website, watch the video and complete the Bracket Challenge. You <strong>do not need</strong> to complete the registration form – it has test information in it already.</span><br /><span style="color: black;">&amp;nbsp;</span><span style="color: black;">&amp;nbsp;</span><br /><strong><span style="color: black;">Again, this is a consumer research test.&amp;nbsp; Completing the Bracket Challenge will NOT officially enter you in the contest/event.&amp;nbsp; </span></strong><strong><span style="color: black;">The information you provide will NOT be kept and please be assured that you will NOT receive any further communications or emails from Purina Pro Plan, the Westminster Kennel Club or any other companies.</span></strong><br /><span style="color: black;">&amp;nbsp;</span><br /><strong><span style="color: black;">To begin, click-on the link and go to the test website.</span></strong><br /><span style="color: black;">&amp;nbsp;</span><br /><strong>Then, watch the video by clicking-on the</strong><strong> arrow on the purple bar that says “Expand to watch Dog Show 101” that looks like this:</strong><br /><br />
+<div><img src="https://prodegemr.decipherinc.com/survey/selfserve/2172/g002/170204/Show101.png" /></div>
+<strong><span style="color: black;"><br />After watching the video, complete the “Bracket Challenge” that looks like this:<br /><br /> <img style="width: 40%;" src="https://prodegemr.decipherinc.com/survey/selfserve/2172/g002/170204/Dog101.JPG" /> <br /><br /></span></strong><strong><span style="color: black;">Take as much time as you’d like and then re-enter the survey and answer a few questions about the experience.</span></strong><br /><span style="color: black;">&amp;nbsp;</span><br />To summarize:<br /><br />Step 1: Click the link to the test website<br />Step 2: Watch the video (Click “EXPAND FOR…” button and Click “WATCH NOW” button)<br />Step 3: Take the Bracket Challenge (Click “SUBMIT” button at bottom of screen and wait several seconds)<br />Step 4: (Click “LOG OUT”) and go back to the survey<br /><br /><a class="track_this_link" href="https://purina-proplan-qa.azurewebsites.net/dogs/dog-show-bracket/registration" target="_blank" title="https://purina-proplan-qa.azurewebsites.net/dogs/dog-show-bracket/registration">https://purina-proplan-qa.azurewebsites.net/dogs/dog-show-bracket/registration</a></html>
+
+<radio 
+  label="MRK_Link_Track"
+  cond="Quota_Cell_Final.r2"
+  optional="1">
+  <title>Hidden question to track whether respondent has hit the link or not.</title>
+  <row label="r1">Yes - Link hit</row>
+  <row label="r2">No - Link hit</row>
+</radio>
+
+<style name="question.after" wrap="ready"><![CDATA[
+$ ('#question_MRK_Link_Track').css('display',"none");  
+$ ("[id*='ans954.0.1']").prop('checked', 'checked');
+$ ('.track_this_link').click(function() {
+	$ ("[id*='ans954.0.0']").prop('checked', 'checked');
+});
+]]></style>
+<suspend/>
+
+<exec>
+Webend.val = time.strftime("%Y-%m-%dT%H:%M:%S")
+</exec>
+
+<text 
+  label="Webstart"
+  optional="1"
+  where="execute,survey,report">
+  <title>website link Start Time Y-m-d T H:M:S</title>
+</text>
+
+<text 
+  label="Webend"
+  optional="1"
+  where="execute,survey,report">
+  <title>website link End Time - Y-m-d T H:M:S</title>
+</text>
+
+<suspend/>
+
+<exec>
+end = datetime.datetime.strptime(Webend.val, "%Y-%m-%dT%H:%M:%S")
+start = datetime.datetime.strptime(Webstart.val, "%Y-%m-%dT%H:%M:%S")
+
+Webtime.val = int((end-start).total_seconds())
+</exec>
+
+<suspend/>
+
+<number 
+  label="Webtime"
+  size="10"
+  optional="1"
+  where="execute,survey,report">
+  <title>website link Time Spent (in seconds)</title>
+</number>
+
+<suspend/>
+*********************************************************************************
+*********************************************************************************
+***********************************age question via style var and vector logic****
+*********************************************************************************
+*********************************************************************************
+<number label="Q1" size="2" optional="0">
+  <title>What is your age</title>
+  <comment>Please enter a whole number</comment>
+</number>
+<suspend/>
+
+<stylevar name="cs:age"/>
+<radio label="Age"
+where="survey,report,execute">
+  <title>Age</title>
+<exec>
+for r in Age.rows:
+if Q1.check(r.styles.cs.age):
+  Age.val = r.index
+</exec>
+  <comment>Select one</comment>
+  <row label="r1" cs:age="18-24">18-24</row>
+  <row label="r2" cs:age="25-34">25-34</row>
+  <row label="r3" cs:age="35-44">35-44</row>
+  <row label="r4" cs:age="45-54">45-54</row>
+</radio>
+<suspend/>
+
+
+////////////////////////////////////////////////////////////////
+
+<number 
+  label="Q2"
+  optional="0"
+  size="3"
+  verify="range(1,100)">
+  <title>What is your age?</title>
+</number>
+
+<suspend/>
+
+<stylevar name="x:xtra"/>
+<radio 
+  label="vQ2"
+  optional="1"
+  where="execute,survey,report">
+  <title>AGE GROUP (HIDDEN)</title>
+  <exec>
+for eachRow in vQ2.rows:
+    age_range = eachRow.o.alt # never set value using .o
+    if Q2.check(age_range):
+        vQ2.val = eachRow.index
+        break
+  </exec>
+
+  <row label="r1" alt="1-17">1-17</row>
+  <row label="r2" alt="18-24">18-24</row>
+  <row label="r3" alt="25-34">25-34</row>
+  <row label="r4" alt="35-44">35-44</row>
+  <row label="r5" alt="45-54">45-54</row>
+  <row label="r6" alt="55-100">55-100</row>
+</radio>
+
+<suspend/>
+
+<term cond="vQ2.r1 or vQ2.r6">Q2:Terminate less then 18 or more then 54 Age</term>
+
+<suspend/>
+*********************************************************************************
+*********************************************************************************
+********************DatePickerDecipherCode**************************************
+*********************************************************************************
+*********************************************************************************
+ <style name="question.after" wrap="ready"><![CDATA[
+var qn = ${jsexport()}; 
+console.log(qn)
+var $qn= $ ("#question_" + qn.label);
+$qn.find("[id='ans253.0.0']").datepicker({
+		changeMonth: true,
+      changeYear: true,
+      showWeek: true,
+      yearRange: "1900:2017",
+      firstDay: 1
+    });
+
+]]></style>
+
+
+<exec>
+date1=S1.ival
+CurrDateEnter.val=date1.replace("&amp;#47;", "/")
+</exec>
+
+<suspend/>
+
+<text 
+  label="CurrDateEnter"
+  where="execute,survey,report">
+  <title>Current Date</title>
+
+</text>
+
+<suspend/>
+
+
+
