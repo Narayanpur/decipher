@@ -1,0 +1,208 @@
+QA......
+
+Programmer QA PROCESS:
+Requirement:
+-	Special setup [DCM, Algorithm, Max-diff]
+-	Media
+-	Custom Look & Feel
+-	Quota setup
+
+Final document:
+-	Questionnaire
+-	Quota
+-	Media files
+-	End client standard [if any]
+-	Clarification / change log
+ 
+1)	Spell check using Spell Checker feature
+
+2)	One page mode:
+a.	Check Question / Response text.
+b.	Check Instruction text/check with client requirements
+c.	Check formatting: underlining, bold, italics, highlighting etc.
+
+3)	Question:
+a.	Properties: randomization, anchor, exclusive, ascending, range, mandatory / non-mandatory etc.
+b.	Type: check to see if each question matches the questionnaire as a Single, Multi select, Numeric, Open end, Grids.
+c.	Hidden: check if all hidden question has “where” property. 
+
+4)	Logic:
+a.	Entry / base condition
+b.	Skip logic
+c.	Row/Col logic
+d.	Masking
+e.	Validation
+f.	Quotas
+g.	Termination [check for each termination point]
+
+5)	Simulated Data:
+Sanity check of the data for each:
+a.	Questionnaire related questions
+b.	Hidden programming questions
+
+6)	Field Report:
+a.	Verify all TERMs listed in QRE are shown here
+b.	Quotas - target and condition
+
+
+7)	Survey property:
+a.	Check progress-bar, back button [if any], section title, survey title, logo, private policy & help links
+b.	Sample suppliers
+c.	Redirects / End screens
+
+8)	Quotas:
+a.	Please check if correct quota cell is populated with green #.
+b.	Once completed the link the quota complete count is incremented.
+c.	Check the targets for each quota cell.
+d.	Check null quota and overquota condition.
+
+9)	Data Quality:
+a.	Straight-liners
+b.	Speeders
+c.	Any other?
+
+10)	Custom:
+a.	JQuery logic
+b.	CSS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Programming Best Practice
+
+Look & Feel:
+-	FIR should always be “on”.
+-	Please include ss:listDisplay=”0” for grid question.
+-	Please do not include ss:listDisplay=”0” for normal single / multiple punch.
+-	Do not include height / width attributes for open end question text-box. Keep it as it is.
+-	The size of input box should be as per the no. of digit that will be valid. If a question has valid range from 10 to 99 then the size of the input box should be 2.
+-	If there are more than 10 statements in a grid then repeat the scale after every 5 statements.
+-	Check the link on all device (Desktop / Laptop, Smartphones, Tablet) to make sure the question is setup properly on screen (without horizontal scroll-bar).
+-	Anchor "Other" and "Exclusive" options.
+
+Re-directs:
+-	Please make sure we are passing the unique id in the redirects [Qualified, terminated, overquota].
+-	The open survey will have a normal text as an end screen (won’t have any redirect unless specify).
+-	For open survey’s there won’t be any unique id.
+
+Survey setting:
+-	Please make sure to remove the back button in live phase
+-	Check if proper device enabled for the project
+-	Check if progress-bar working properly
+-	Browser dupes should be set as safe.
+
+Basic:		
+-	Check that rating scale syntax has been added to each rating scale	
+-	Check and confirm that no “goto” conditions are present in the project	
+-	Check and confirm that ""NOT"" condition programming is as per the requirement for that question/logic.  All the terminations are at the location where client has asked (i.e. at the end of the screener or after the question).	
+-	Check that groups containing "exclusive codes" that do not need to be randomized and "Other" have been given an attribute of randomize= "0".
+
+Autofill:		
+-	Do all hidden questions should have the word "V" mentioned before them even if not specified in the q're. 
+-	If hidden variables are only for the programming purpose then put where="notdp".
+-	To punch a hidden marker (question) always write the exec block within the question.
+-	For block / section randomization, always capture the randomization order.
+
+Validations:		
+-	Have res tags been used to declare custom error messages? This is for all the studies.	
+-	Check that "unique" has been used for all ranking questions?	
+-	Check that statements where only one answer can be given for any attributes should have a validate added? For eg., since the same statement cannot be selected as Least and Most Appealing a validate command needs to be added.	
+
+Formatting:		
+-	"Check that all numeric questions have width added to take care that the length is just one more than the highest no.?
+-	That is, if the highest number is ""99"" then the width should be ""2"""	
+-	For all total questions, please add "autosum" by default.	
+-	For any grid questions / radio / checkbox questions containing an exclusive "None of the above/ Don't know" response at the end, in case we have "Other/Other (please specify)" option in this list, need to fix (do not randomize) this options before None of the above/ Don't know".	
+-	Have all "other/NA" codes been added to "randomize="0"".	
+-	Make sure the option text is always shown on the right in case of a checkbox or radio	
+
+Quotas:		
+-	Make sure try to call all the quotas in one sheet as per the requirement.	
+-	In case of quota sheets where the same marker is used across quota tables, use # doit="1" #, when we are calling all the quotas in one sheet.	
+-	Has a Total quota been added irrespective if specified or not in the qnre? To track the overall quota rather than calculating all the numbers.	
+-	Has a Sample partner specific quota been added irrespective if specified or not in the qnre? This is applicable if more than one sample partner in the study.	
+-	Has the structure been confirmed with client, need to send the quota screen view URL while asking the queries.	
+-	In case of a multi punch quota, make sure that "cell:<No. of maximum allowed cells>" is mentioned.	
+-	There shouldn’t be any "space" or any special character (apart from underscore) while assigning name to any quota.
+-	If the quota is based upon couple of questions then try to keep all the quota's within same excel sheet.
+-	Provide quota cell variable label as per the question option label
+-	Please use "1" instead of "plus"
+-	Call quota element after the question on which it’s based.
+
+Pipe-In:		
+-	Check the case of the insertions i.e. if needed to be shown in lower or upper case or in the same case as mentioned in the previous question.
+	
+Data Quality:		
+-	Check if speeders need to be programmed in the study?	
+-	"If Speeders present, check if the respondent should be terminated or flagged? (Shell has termination syntax)
+-	If flagged, confirm that a marker is present that saves if the respondent has been flagged as a speeder."	
+-	If Speeders present, check if the logic should be "lesser than" or "lesser than or equal to"? (Standard shell has 'lesser than or equal to')	
+-	Check if Straight liners need to be programmed in the study?	
+-	If Straighliners present, check if the respondent should be terminated or flagged?
+-	If flagged, confirm that a marker is present that saves if the respondent has been flagged as a straight liner.	
+-	If Straighliners present, check the logic that has been used and confirm if it is right.	
+
+Media:		
+-	Check if we need to apply any security measure on the media?
+-	Check that a script has been added to avoid auto-submitting a video question.	
+-	If more than one video, need to make sure videos are assign as per the cell quota.	
+-	Check that a script has been added to avoid auto-start a video question.	
+-	Verify images are clear, undistorted and sized properly.	
+
+Device testing:		
+-	Check the survey link in mobile  iOS & Android is case survey going live for the mobile users	
+-	Check pages, questions, rows are loading and alignment is correct.	
+-	Check any images/videos can be viewed properly/entirely.	
+-	Check any links/concepts/pop-ups are opening and shown properly.	
+-	Check the survey link in tablets is case survey going live for the mobile users
+	
+Browser testing:		
+-	Check the test link in all major browsers [chrome, Firefox, IE 11 and Safari].	
+
+General:
+-	For Don’t know / Not sure option please always add [aggregate="0" percentages="0"] attributes.
+-	Please add setting [type=”rating”] for rating question.
+-	Please do not validate Other specify box for numbers.
+-	Please make sure to include error messages in res tags.
+-	Make labels and values match if possible. The positive one will have higher value than negative one. Also, if needed get it clarified.
+-	For rowCond, we should use Q[row] instead of Q[row.index].
+-	To make a multi punch question optional, please use at least=0.
+-	The unique variable should always be declared as "autosavekey"
+-	If there is any pipe-in in the question text / option text then please use "alt" and add appropriate text into it so that one can able to understand when refers to report.
+-	Verify Top2/Bottom2 nets in the report are correctly capturing data (and/or Top3/Bottom3 nets)
