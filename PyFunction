@@ -1,0 +1,161 @@
+===========================Sequence Check=================================
+def seq_check(q):
+	#q_rows=[x.index for x in q.rows]
+	row_count=len(q.rows)
+	for r in q.rows:
+		if not r.val:
+		   if r.index==(row_count-1):
+			  break
+		   elif q.rows[r.index + 1].val:
+			  error(res.noanswer)
+
+
+==========================Duplicate Value check============================
+def dupe_check(q1):
+    for r in q1.rows:
+        for r1 in q1.rows:
+            if r.index == r1.index:
+               pass
+            elif r:
+                 if r.val == r1.val:
+                    error(res.dupelicate)
+==========================Row Masking======================================                    
+def row_mask(s,d):
+    for r in s.rows[0:-1]:
+        if not r:
+           d[r.index].disabled="True"
+           
+==========================punching values==================================
+def hid_pun(s,d):
+    for r in s.rows[0:-1]:
+        if r:
+           d.rows[r.index].val=r.index
+
+=========================Checking Alternate Values=========================
+
+for r in Q4.rows:
+    if r:
+       if not D7.rows[r.index].val:
+          error(res.totalMisMatch)
+
+for eg using with "rightOf" cb with text
+
+==========================Advance Shuffling=================================
+Q7.rows.order=Q6.rows.order
+
+==========================Punch values in Hidden Random Quota===============
+conArr=['plasticBox','plasticBag','cardboardBox','noContainer']
+for er in QCon.rows:
+    if hasMarker("/concept/%s" % (conArr[er.index])):
+       er.val=1
+
+==========================Sequence Check in 3D grid Choice==================
+for r in S6.rows:
+    for r1 in S6b.rows:
+        if r.val !=-1 and r1.val==-1:
+            if r.index==r1.index:
+    	      error(res.sequenceError)
+===========================check val in 3D grid choice(for single row)======
+if S6b.r1.val==-1:
+   if S6b.r2.val !=-1:
+	  error(res.sequenceError)
+
+===========================for Checking values in range=====================
+p.age =["12","13","14","15","16","17","18"]
+for r in S6.rows:
+    if r.val !=-1 and (S6.choices[r.val].text in p.age):
+	    hS6.rows[r.index].val=1
+
+===========================to get choice value from 3D grid=================
+QR1.choices[QR1.r1.c1.val].text.upper()
+
+=========================== to get rank in order of Others as well==========
+if (Q20_[loopvar: label].r5.open and (max(Q20_[loopvar: label].values) lt 4)):
+    error(res.Q20Error)
+
+===========================to set top 3 ranks===============================
+for Q9Row in Q9.rows:
+    if Q9Row.val in [0,1,2] and (Q9Row.label in ["r1","r2","r3","r4"]):
+       hBrands.rows[Q9Row.index].val=1
+if Q9.r7.val in [0,1,2]:
+       hBrands.r7.val=1
+
+===========================to implement Choice Cond=========================
+p.count=0
+for r in ["r1","r2","r3","r4","r7"]:
+    if getattr(Q8,r).val==1:
+       p.count =p.count + 1
+print p.count
+===========================set the brands in HQ before Looping===============
+for Q24BransRow in hQ24Brands.rows:
+    if Q24BransRow.label in ["r1","r2","r3","r4"] and (getattr(Q7,Q24BransRow.label).val==1 or getattr(Q8,Q24BransRow.label).val==1):
+       Q24BransRow.val=1
+if Q8.r7:
+    hQ24Brands.r7.val=1
+==========================================dupe_checkOthers==================
+def dupe_checkOthers(q2):
+    for r in [6,7,8]:
+        for r1 in [6,7,8]:
+            if r == r1:
+               pass
+            elif q2.rows[r].val and q2.rows[r].open !="":
+               if str(q2.rows[r].open).lower() ==str(q2.rows[r1].open).lower():
+                    error(res.duplicate)
+                    
+==========================================seq_checkOthers===================                    
+def seq_checkOthers(q):
+    for r in [6,7,8]:
+        for r1 in [6,7,8]:
+            if not q.rows[r].val:
+               if r == r1:
+                  pass
+               elif q.rows[r1].val and q.rows[r1].open !="":
+                  error(res.seqError)   
+
+===========================================GetAllEqaulTo 2d Grid=============
+def getAllEqualTo(q,column):
+    rowMasked=[]
+    for r in q.rows:
+        for c in column:
+            if r.val == c.index:
+               rowMasked.append(r.label)
+    return rowMasked   
+
+rowCond="row.label in getAllEqualTo(Hq1,[Hq1.c1,Hq1.c2])"
+===========================================AutoFill with Zero================
+for r in a1.rows:
+    if r.val and a1.count==1:
+       a2.rows[r.index].val=100
+    else:
+       a2.rows[r.index].val=0
+
+plus**
+<validate>
+for r in a2.rows:
+    if r.displayed and r.ival==0:
+       a2.rows[r.index].val=0
+</validate>
+===========================================AutoFill with Zero for 3D grid====
+def autofillZero(qid,column):
+    for r in qid.rows:
+           if r.displayed and r.sum == 100:
+              for c in column:
+                  if qid[r][c].ival==0:
+                     qid[r][c].val=0
+
+
+===================================Masking multiple rows basis of grouped columns=======
+<exec when="init">
+def Q12Mask():
+  slctd2=[]
+  for r in range(0,len(Q11a.cols)):
+      for p in range(0,len(Q11a.rows)-1):
+          if Q11a.rows[p][r].val == 1:
+             slctd2.append("r"+str((r*8)+p+1))
+  lastRow= len(Q11a.cols)*(len(Q11a.rows)-1)
+  for i,Q11brow in enumerate(Q11b.rows):
+      if Q11b.rows[i].val==1 and (not Q11b.rows[i].label=="r11"):
+         slctd2.append("r"+str(lastRow+i+1))			
+  print slctd2
+  return slctd2
+</exec>
