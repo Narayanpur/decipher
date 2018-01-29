@@ -73,12 +73,6 @@ else:
 </style>
 
 
-<!-- Depricated AMS intro screens -->
-<!-- show "welcomeAMSnonres" instead of "welcomeAMSres" if restart NOT allowed --> <!--
-<html label="welcomeAMS" where="survey" cond="(countryCode == 'US' or countryCode == 'CA') and (list=='0' and panelPartnerId=='1' or list=='1' and netMRsrc=='90')">${hlang.get("welcomeAMSres",LOI="5",POINTS="5")}</html> -->
-
-<html label="welcome" where="survey" cond="(countryCode != 'US' and countryCode != 'CA') and (list=='0' and panelPartnerId=='1' or list=='1' and netMRsrc=='90')">${hlang.get("welcome",LOI="15")}</html>
-<suspend/>
 
 <!--=====Your survey starts here (v1.5)=====-->
 
