@@ -1,0 +1,68 @@
+<res label="notApplicable">Please do not provide your response if Not Applicable is Selected</res>
+<res label="noResponse">Please provide your response</res>
+<res label="DupeCheckError">Please do not provide duplicate responses</res>
+<res label="SequenceCheckError">Please provide your response in sequence</res>
+
+
+<exec when="init">
+
+def SequenceCheck(qid):
+	row_count=len(qid.rows)
+	col_count=len(qid.cols)
+	for r in qid.rows:
+		for c in qid.cols:
+			if not qid[r][c].val:
+				if c.index==(col_count-1):
+			 		break
+				elif qid[r][c.index+1].val:
+					error(res.SequenceCheckError,r)
+
+
+def DupeCheck(qid):
+	row_count=len(qid.rows)
+	col_count=len(qid.cols)
+	for r in qid.rows:
+		for c in qid.cols:
+			if qid[r][c].val:
+				if c.index==(col_count-1):
+			 		break
+				elif str(qid[r][c].val).lower()==str(qid[r][c.index+1].val).lower():
+					error(res.DupeCheckError,r)
+</exec>
+
+
+<suspend/>
+
+<text label="Q76" size="10" optional="1" ss:listDisplay="0">
+  <title>Please specify your medical conditions</title>
+  <comment>Please be as specific as possible</comment>
+  <row label="r1">Medical Condition 1</row>
+  <row label="r2">Medical Condition 2</row>
+  <row label="r3">Medical Condition 3</row>
+  <row label="r4">Medical Condition 4</row>
+  <row label="r5">Medical Condition 5</row>
+<col label="c1"/>
+<col label="c2"/>
+<col label="c3"/>
+<col label="c4"/>
+<col label="c5"/>
+<validate>
+DupeCheck(Q76)
+SequenceCheck(Q76)
+for r in Q76.rows:
+	if Q76[r][0].val and Q76a.rows[r.index].val==1:
+		error(res.notApplicable, r)
+	if not Q76[r][0].val and not Q76a.rows[r.index].val:
+		error(res.noResponse, r)
+</validate>
+</text>
+<checkbox label="Q76a" optional="1" ss:listDisplay="0" rightOf="Q76">
+  <title>Please specify your medical conditions</title>
+  <row label="r1">Medical Condition 1</row>
+  <row label="r2">Medical Condition 2</row>
+  <row label="r3">Medical Condition 3</row>
+  <row label="r4">Medical Condition 4</row>
+  <row label="r5">Medical Condition 5</row>
+<col label="c6">Not Applicable</col>
+</checkbox>
+<suspend/>
