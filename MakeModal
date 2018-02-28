@@ -1,0 +1,85 @@
+<style mode="after" name="respview.client.js" with="" wrap="ready"><![CDATA[
+$ ('.fir-select .input.dropdown ').css('font-size','1.5rem');
+$ ('.fir-select .input.dropdown ').css('color','#454545');
+$ ('.fir-select .input.dropdown ').css('font-family','Arial,sans-serif');
+$ ('.fir-select .input.dropdown ').css('line-height','normal');
+$ ('.fir-select .input.dropdown ').css('margin-bottom','.333em');
+var DropDowns = $ ('select');
+	var arrMakes = $ ('select:eq(0)').clone();
+
+  var arrModels1 = $ ('select:eq(1)').clone();
+
+  var arrModels2 = $ ('select:eq(2)').clone();
+  
+UpdateModel( $ ('select:eq(0)'), $ ('select:eq(1)'),arrModels1,arrMakes,"question_Q2a_Model");
+
+ 	
+  $ ('select:eq(0)').change(function() {	
+		UpdateModel( $ ('select:eq(0)'), $ ('select:eq(1)'),arrModels1,arrMakes,"question_Q2a_Model");
+  });
+  
+  
+  $ ('select:eq(1)').change(function() {
+  
+		UpdateMake( $ ('select:eq(0)'), $ ('select:eq(1)'),arrModels1,arrMakes,"question_Q2a_Model");
+  });
+ 
+    
+function UpdateModel(MakeQues,ModelQues,ArrayModel,ArrayMake,hideId)
+{      
+	var MDrop = MakeQues;
+    var Mvalue = MDrop.val();
+	var ModDrop = ModelQues;
+	var Modvalue = ModDrop.val();
+
+	var MClassName = $ ('option[value="'+ Mvalue +'"]',MDrop).attr('class');
+	
+	if($ ("option." + MClassName,ArrayModel).length > 0 && MClassName!='NotSure' )
+	{	
+		ModDrop.find('option').remove().end().append(ArrayModel.find('option:eq(0)').clone());
+		$ ("div[id*='_Model']").show();
+		ModDrop.append($ ("option." + MClassName,ArrayModel).clone());
+		ModDrop.append($ ("option.All",ArrayModel).clone());
+	}	
+	else if(MClassName=='NotSure' || Mvalue == -1)
+	{
+		$ ("div[id*='_Model']").show();
+		ModDrop.find('option').remove().end().append(ArrayModel.find('option:eq(0)').clone());
+		ModDrop.append(ArrayModel.find('option:gt(0)').clone());
+	}
+	else{
+		ModDrop.find('option').remove().end().append(ArrayModel.find('option:eq(0)').clone());
+		//$ ("div[id*='_Model']").hide();
+		$ ("div[id*='_Model']").show();
+		ModDrop.append($ ("option.All",ArrayModel).clone());
+	}			
+	$ ('option[value="'+ Modvalue +'"]',ModDrop).attr('selected', true);
+};
+
+    
+function UpdateMake(MakeQues,ModelQues,ArrayModel,ArrayMake,hideId)
+{
+	var MDrop = MakeQues;
+    var Mvalue = MDrop.val();
+	var ModDrop = ModelQues;
+	var Modvalue = ModDrop.val();
+	
+	var ModClassName = $ ('option[value="'+ Modvalue +'"]',ModDrop).attr('class');
+
+	if($ ("option." + ModClassName,ArrayMake).length > 0  && ModClassName!='NotSure')	{
+		MDrop.find('option').hide().end().append(ArrayMake.find('option:eq(0)').clone());
+		//$ ("#"+hideId).show();
+		$ ("div[id*='_Model']").show();
+		
+		MDrop.append($ ("option." + ModClassName,ArrayMake).clone());
+		MDrop.append($ ("option.NotSure",ArrayMake).clone());
+	}
+	else{
+		
+		MDrop.find('option').remove().end().append(ArrayMake.find('option:eq(0)').clone());
+		MDrop.append(ArrayMake.find('option:gt(0)').clone());
+	}
+	$ ('option[value="'+ Mvalue +'"]',MDrop).attr('selected', true);
+};
+]]></style>
+<suspend/>
