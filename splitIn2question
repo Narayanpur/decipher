@@ -1,0 +1,194 @@
+ <define label="WhyNoSee_List">
+    <row label="r1" cs:Category="BUZZ">I heard that it was not good from friends or family members</row>
+    <row label="r2" cs:Category="BUZZ">I never really heard much about it</row>
+    <row label="r3" cs:Category="BUZZ">None of my friends or family members wanted to see it</row>
+    <row label="r4" cs:Category="BUZZ">It did not seem like a big movie</row>
+    <row label="r5" cs:Category="BUZZ">I heard that it wasn't as good as the earlier STAR WARS movies</row>
+    <row label="r6" cs:Category="GENERALTONE">The story didn't look interesting</row>
+    <row label="r7" cs:Category="GENERALTONE">It looked too violent</row>
+    <row label="r8" cs:Category="GENERALTONE">The story looked too confusing</row>
+    <row label="r9" cs:Category="GENERALTONE">It didn't look new or fresh enough</row>
+    <row label="r10" cs:Category="GENERALTONE">It didn't seem like a fun experience</row>
+    <row label="r11" cs:Category="GENERALTONE">It looked too similar to previous STAR WARS movies</row>
+    <row label="r12" cs:Category="GENERALTONE">It looked too predictable</row>
+    <row label="r13" cs:Category="GENERALTONE">It didn't look futuristic enough</row>
+    <row label="r14" cs:Category="GENERALTONE">I was worried it would be too long</row>
+    <row label="r15" cs:Category="CHARACTERSANDCAST">The bad guy didn't look very cool</row>
+    <row label="r16" cs:Category="CHARACTERSANDCAST">I wasn't interested in the new heroes, such as Rey, Finn and Poe</row>
+    <row label="r17" cs:Category="CHARACTERSANDCAST">There seemed to be too many characters</row>
+    <row label="r18" cs:Category="CHARACTERSANDCAST">There didn't seem to be enough new characters</row>
+    <row label="r19" cs:Category="CHARACTERSANDCAST">I didn't know enough about the characters</row>
+    <row label="r20" cs:Category="CHARACTERSANDCAST">Han Solo / Harrison Ford was not in the movie</row>
+    <row label="r21" cs:Category="COMPETITION">I want to see it but I haven't gotten around to it yet</row>
+    <row label="r22" cs:Category="COMPETITION" >I'm waiting to see it at home There were other movies I wanted to see more</row>
+    <row label="r23" cs:Category="COMPETITION">I wanted to but my parents wouldn't let me</row>
+    <row label="r24" cs:Category="FAMILARITY">I am not a fan of STAR WARS</row>
+    <row label="r25" cs:Category="FAMILARITY">I am tired of STAR WARS films</row>
+    <row label="r26" cs:Category="FAMILARITY">I haven't seen the previous STAR WARS episodes</row>
+    <row label="r27" cs:Category="FAMILARITY">I'm not familiar enough with STAR WARS' story</row>
+    <row label="r28" cs:Category="FAMILARITY" cond="SeenA.r13.c1 or SeenA.r13.c2 or SeenA.r13.c3">I did not like STAR WARS: THE FORCE AWAKENS</row>
+    <row label="r29" cs:Category="FAMILARITY" cond="SeenA.r13.c4 or SeenA.r13.c5">I did not see STAR WARS: THE FORCE AWAKENS so I was not interested in this one</row></define>
+  <pipe label="Ins_WhyNoSee" capture="">
+    <case label="c1" cond="Sample.r2">The following are some statements that some people have used for why they did <b><u>NOT</u></b> see <b>STAR WARS: THE LAST JEDI</b> in a movie theater with their <b>[pipe: MRK_Final_Kid_selected]</b>.</case>
+    <case label="c2" cond="1">The following are some statements that some people have used for why they did <b><u>NOT</u></b> see <b>STAR WARS: THE LAST JEDI</b> in a movie theater.</case></pipe>
+  <exec>
+p.loopCount=0 
+p.NoneCount=0
+  </exec>
+
+  <exec>
+for eachRow in MRK_WhyNoSee_Displayed.rows:
+	condCs=eachRow.styles.cs.Condition
+	eachRow.val=1
+		
+	if	(condCs=="SampCond") and (not Sample.r1):
+		eachRow.val=0
+	elif (condCs=="SeenA14lt") and not (SeenA.r14.c1 or SeenA.r14.c2 or SeenA.r14.c3):
+		eachRow.val=0
+	elif (condCs=="SeenA14gt") and not (SeenA.r14.c4 or SeenA.r14.c5):
+		eachRow.val=0
+	elif (condCs=="ChildAsk") and not (ChildAsk.r2):		
+		eachRow.val=0
+	
+	if (eachRow.styles.cs.Category.find('PARENTS') ge 0) and not(Sample.r2):	
+		eachRow.val=0
+  </exec>
+
+  <checkbox 
+   label="MRK_WhyNoSee_Displayed"
+   shuffle="rows"
+   where="execute,survey,report">
+    <title>WhyNoSee Rows Displayed</title>
+    <insert source="WhyNoSee_List"/>
+  </checkbox>
+
+  <suspend/>
+
+  <exec>
+WhyNoSeeOrd = []
+WhyNoSeeGrp = []
+for eachrow in MRK_WhyNoSee_Displayed.rows:
+	erstyle = eachrow.styles.cs.Category
+	if (eachrow) and (erstyle not in WhyNoSeeGrp):
+		WhyNoSeeGrp.append(erstyle)
+
+print "Start"
+print WhyNoSeeGrp
+
+WhyNoSeeGrpCnt = 0.0
+WhyNoSeeGrpCnt = float(len(WhyNoSeeGrp))
+
+StepAIns = float(WhyNoSeeGrpCnt)/float(2)
+StepBIns = round(StepAIns,0)		
+if (StepAIns gt StepBIns):MaxNoOptPerPageIns = int(StepBIns) + 1
+else:MaxNoOptPerPageIns = int(StepBIns)		
+
+print "WhyNoSeeGrpCnt:" + str(WhyNoSeeGrpCnt)
+print "MaxNoOptPerPageIns:" + str(MaxNoOptPerPageIns)
+
+import random
+random.shuffle(WhyNoSeeGrp)
+print WhyNoSeeGrp
+
+grpcnt = 0
+loopcnt = 1
+for arrpos in range(0,len(WhyNoSeeGrp)):	
+	GrpLbl = WhyNoSeeGrp[arrpos]
+	print "GrpLbl:" + str(GrpLbl)
+	print "loopcnt:" + str(loopcnt)
+	
+	for eachrow in ishuffle(MRK_WhyNoSee_Displayed.rows):
+		if (eachrow) and (eachrow.styles.cs.Category == GrpLbl):
+			allQuestions["MRK_WhyNoSee_Displayed_" + str(loopcnt)].attr(eachrow.label).val = 1
+			WhyNoSeeOrd.append(eachrow.index)
+	
+	grpcnt = grpcnt + 1	
+	if (grpcnt == MaxNoOptPerPageIns):
+		loopcnt = loopcnt + 1		
+	
+MRK_WhyNoSee_Displayed.rows.order = WhyNoSeeOrd
+  </exec>
+
+  <suspend/>
+
+  <loop label="WhyNoSee_Loop" vars="Category">
+    <block label="WhyNoSee_Block">
+      <checkbox 
+     label="MRK_WhyNoSee_Displayed_[loopvar: label]"
+     shuffle="rows"
+     where="survey,report,execute,notdp">
+        <title>Rows to be shown at WhyNoSee</title>
+        <exec>
+MRK_WhyNoSee_Displayed_[loopvar: label].rows.order=MRK_WhyNoSee_Displayed.rows.order
+        </exec>
+
+        <insert source="WhyNoSee_List"/>
+      </checkbox>
+
+      <suspend/>
+
+      <checkbox 
+     label="WhyNoSee_[loopvar: label]"
+     atleast="1"
+     rowCond="MRK_WhyNoSee_Displayed_[loopvar: label][row]"
+     shuffle="rows">
+        <title>The following are a bunch of reasons that some people have used for why they did <u><b>NOT</b></u> see <b>STAR WARS: THE LAST JEDI</b> in a movie theater.</title>
+        <comment>Please select all that <b>you</b> agree with.</comment>
+        <exec>
+WhyNoSee_[loopvar: label].rows.order=MRK_WhyNoSee_Displayed.rows.order
+        </exec>
+
+        <insert source="WhyNoSee_List"/>
+        <row label="r99" cond="1" exclusive="1" randomize="0">None of the above</row>
+      </checkbox>
+
+      <suspend/>
+
+      <exec>
+for eachRow in WhyNoSee_[loopvar: label].rows:
+ if (WhyNoSee_[loopvar: label].attr(eachRow.label).count gt 0) and not(WhyNoSee_[loopvar: label].r99):   
+  WhyNoSee.attr(eachRow.label).val = WhyNoSee_[loopvar: label].attr(eachRow.label).val
+      </exec>
+
+      <suspend/>
+    </block>
+
+    <looprow label="1">
+      <loopvar name="Category"/>
+    </looprow>
+
+    <looprow label="2">
+      <loopvar name="Category"/>
+    </looprow>
+  </loop>
+
+  <suspend/>
+
+  <checkbox 
+   label="WhyNoSee"
+   optional="1"
+   shuffle="rows"
+   where="execute,survey,report">
+    <title><span class="ignorestatic1"></span>[pipe:Ins_WhyNoSee]</title>
+    <exec>
+if WhyNoSee.but(WhyNoSee.r99).any: WhyNoSee.r99.val = 0
+if WhyNoSee.count==0: WhyNoSee.r99.val = 1
+WhyNoSee.rows.order=MRK_WhyNoSee_Displayed.rows.order
+    </exec>
+
+    <insert source="WhyNoSee_List"/>
+    <row label="r99" exclusive="1" randomize="0">None of the above</row>
+  </checkbox>
+
+  <suspend/>
+
+  <exec cond="0">
+if WhyNoSee.r27 and Fanship.r1.c1:
+	TermPointSetting('r28')
+  </exec>
+
+  <suspend/>
+
+  <html label="WhyNoSeeTermInfo" cond="(Term_Point.r28) and (gv.survey.root.state.testing or gv.survey.root.state.dev or (gv.survey.root.state.live and stv=='1')) and (MRK_Idtype.r2)" translateable="0" where="survey">TERMINATE SCREEN</html>
+
+  <suspend/>
