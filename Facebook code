@@ -234,6 +234,146 @@ else:
   setLanguage('english')
 </exec>
 
+Image Zoom...
 
+
+
+<style mode="after" name="respview.client.css" with="concept_trans1_r1,concept_trans1_r2,concept_trans1_r3,concept_trans1_r4,value_r1,value_r2,value_r3,value_r4,Frequency_r1,Frequency_r2,Frequency_r3,Frequency_r4,Believability_r1,Believability_r2,Believability_r3,Believability_r4,Healthy_r1,Healthy_r2,Healthy_r3,Healthy_r4,Meets_a_Need_r1,Meets_a_Need_r2,Meets_a_Need_r3,Meets_a_Need_r4,Appeal_r1,Appeal_r2,Appeal_r3,Appeal_r4,PI_r1,PI_r2,PI_r3,PI_r4,Not_Likely_to_Purchase_r1,Not_Likely_to_Purchase_r2,Not_Likely_to_Purchase_r3,Not_Likely_to_Purchase_r4"><![CDATA[
+<style type="text/css">
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+  background: rgba(0,0,0,0.9) !important;
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 1100px;
+}
+
+\@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+\@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+\@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+</style>
+]]></style>
+<style mode="after" name="respview.client.js" with="concept_trans1_r1,concept_trans1_r2,concept_trans1_r3,concept_trans1_r4,value_r1,value_r2,value_r3,value_r4,Frequency_r1,Frequency_r2,Frequency_r3,Frequency_r4,Believability_r1,Believability_r2,Believability_r3,Believability_r4,Healthy_r1,Healthy_r2,Healthy_r3,Healthy_r4,Meets_a_Need_r1,Meets_a_Need_r2,Meets_a_Need_r3,Meets_a_Need_r4,Appeal_r1,Appeal_r2,Appeal_r3,Appeal_r4,PI_r1,PI_r2,PI_r3,PI_r4,Not_Likely_to_Purchase_r1,Not_Likely_to_Purchase_r2,Not_Likely_to_Purchase_r3,Not_Likely_to_Purchase_r4"><![CDATA[
+<script type="text/javascript">
+$ (document).ready(function() {
+  
+$ ("body").prepend(' <div id="myModal" class="modal">   <span class="close">X</span>   <img class="modal-content" id="img01" />   <div id="caption"></div> </div>');
+
+var modal = document.getElementById('myModal');
+
+
+$ (".concept_image12").css("display","none");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+var span = document.getElementsByClassName("close")[0];
+
+
+$ (".concept_image").click(function(){
+  
+    modal.style.display = "block";
+    var new_src = $ (this).closest("div").find(".concept_image12").attr("src");
+    second_image = $ (this);
+    modalImg.src = new_src;
+    captionText.innerHTML = this.alt;
+      $ ("#img01").css("width","80%");
+    
+    
+});
+
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+
+$ ("#img01").click(function(){
+$ (this).css("width","80%");
+
+});
+
+});
+
+</script>
+]]></style>
+
+<res label="C1"><div style="text-align:center;"><img src="[rel Slide1.PNG]" class="concept_image" width="70%" /><img src="[rel Slide1.PNG]" class="concept_image12" width="100%" /></div></res>
+<res label="C2"><div style="text-align:center;"><img src="[rel Slide2.PNG]" class="concept_image" width="70%" /><img src="[rel Slide2.PNG]" class="concept_image12" width="100%" /></div></res>
+<res label="C3"><div style="text-align:center;"><img src="[rel Slide3.PNG]" class="concept_image" width="70%" /><img src="[rel Slide3.PNG]" class="concept_image12" width="100%" /></div></res>
+<res label="C4"><div style="text-align:center;"><img src="[rel Slide4.PNG]" class="concept_image" width="70%" /><img src="[rel Slide4.PNG]" class="concept_image12" width="100%" /></div></res>
 
 
