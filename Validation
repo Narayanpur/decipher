@@ -1,0 +1,33 @@
+
+<res label="SequenceError">Please enter your response in order.</res>
+<res label="DuplicateError">You can’t enter duplicate words.</res>
+
+<exec when="init">
+def SequenceCheck(qid):
+	row_count=len(qid.rows)
+	for r in qid.rows:
+		if not r.val:
+			if r.index==(row_count-1):
+				break
+			elif qid.rows[r.index+1].val:
+				error(res.SequenceError)
+
+def DuplicateCheck(qid):
+	for r in qid.rows:
+			for r1 in qid.rows:
+				if r.index==r1.index:
+					pass				
+				elif r:
+					if str(r.val).lower()==str(r1.val).lower():
+						error(res.DuplicateError)
+</exec>
+
+***************************************open Optional*********************
+<res label="QS5aerr1">You have specified extra information, please provide your input more than zero(0) for that particular row.</res>
+<res label="QS5aerr3">Please enter the response in other specify box below as your input is more than zero(0) for row.</res>
+  <validate>
+if len(str(QS5b.r3.open)) gt 0 and QS5b.r3.ival==0:
+	error(res.QS5aerr1) 
+if len(str(QS5b.r3.open)) == 0 and QS5b.r3.ival gt 0:
+	error(res.QS5aerr3)
+  </validate>
