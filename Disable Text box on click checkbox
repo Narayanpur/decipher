@@ -1,0 +1,176 @@
+<style mode="after" name="respview.client.js" with="QPR1" wrap="ready"><![CDATA[
+window.onload=function()
+{  
+
+
+setInterval(function(){
+
+                if ($ ("#ans8367\\.0\\.0").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.0').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.0').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.0').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.0').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.0').css('background-color', '#fff;');
+          		 }
+                
+                
+                if ($ ("#ans8367\\.0\\.1").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.1').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.1').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.1').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.1').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.1').css('background-color', '#fff;');
+          		 }
+              
+              
+                if ($ ("#ans8367\\.0\\.2").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.2').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.2').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.2').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.2').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.2').css('background-color', '#fff;');
+          		 }
+
+				if ($ ("#ans8367\\.0\\.3").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.3').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.3').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.3').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.3').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.3').css('background-color', '#fff;');
+          		 }
+          		 
+          		if ($ ("#ans8367\\.0\\.4").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.4').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.4').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.4').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.4').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.4').css('background-color', '#fff;');
+          		 }
+          		 
+          		if ($ ("#ans8367\\.0\\.5").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.5').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.5').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.5').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.5').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.5').css('background-color', '#fff;');
+          		 }
+          		 
+          		  
+          		if ($ ("#ans8367\\.0\\.6").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.6').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.6').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.6').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.6').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.6').css('background-color', '#fff;');
+          		 }
+          		 
+          		if ($ ("#ans8367\\.0\\.7").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.7').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.7').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.7').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.7').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.7').css('background-color', '#fff;');
+          		 }
+          		 
+          		if ($ ("#ans8367\\.0\\.8").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.8').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.8').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.8').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.8').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.8').css('background-color', '#fff;');
+          		 }
+          		 
+          		if ($ ("#ans8367\\.0\\.9").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.9').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.9').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.9').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.9').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.9').css('background-color', '#fff;');
+          		 }
+          		 
+          		if ($ ("#ans8367\\.0\\.10").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.10').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.10').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.10').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.10').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.10').css('background-color', '#fff;');
+          		 } 
+          		 
+          		if ($ ("#ans8367\\.0\\.11").siblings().hasClass("selected")==true){ 
+     				$ ('#ans3152\\.0\\.11').prop('readonly', true);
+                	$ ('#ans3152\\.0\\.11').css('background-color', '#dcdcdc');
+                	$ ('#ans3152\\.0\\.11').val('');
+                }
+                else{              
+     				$ ('#ans3152\\.0\\.11').prop('readonly', false); 
+                	$ ('#ans3152\\.0\\.11').css('background-color', '#fff;');
+          		 } 
+
+
+}, 1);
+}
+]]></style>
+<suspend/>
+
+ <number 
+    label="QPR1"
+    rowCond="QHidBrandsS6gt1[row]"
+    size="3"
+    ss:listDisplay="0"
+    ss:questionClassNames="skipAutosize"
+    surveyDisplay="desktop"
+    verify="range(1,50)">
+      <title>During the past 12 months, how many problems and/or complaints, if any, have you experienced with the following brand's products?</title>
+      <validate>
+for eachRow in QPR1.rows:
+	if not(eachRow.c1.val) and not(QPR1x2.rows[eachRow.index].c2) and QHidBrandsS6gt1[eachRow] :
+		error(res.triggerError)
+      </validate>
+
+      <col label="c1">Problem(s)</col>
+      <insert source="p1"/>
+    </number>
+
+    <checkbox 
+    label="QPR1x2"
+    rightOf="QPR1"
+    rowCond="QHidBrandsS6gt1[row]"
+    ss:questionClassNames="skipAutosize"
+    surveyDisplay="desktop">
+      <title>Have you participated in a product training program for any of the following?</title>
+      <col label="c2">Did not experience any problems</col>
+      <insert source="p1"/>
+    </checkbox>
+
+    <suspend/>
+
+    <exec>
+if (QHidBrandsS6gt1.p1r1) and (QPR1.p1r1.c1.ival gt 0):
+ 	QHidInsdavinci_Int_1.val = 0
+if (QHidBrandsS6gt1.p1r10) and (QPR1.p1r10.c1.ival gt 0):
+	QHidInsdavinci_Int_1.val = 1
+    </exec>
+
+    <suspend/>
