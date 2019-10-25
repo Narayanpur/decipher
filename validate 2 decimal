@@ -1,0 +1,10 @@
+<text label="q39" optional="0" size="25">
+<title>Regex with 2 decimal places test</title>
+<comment>Be specific</comment>
+<validate>
+import re
+testrun=re.compile('^\d+.\d{2}$')
+if testrun.match(q39.val)==None:
+  error("test")
+</validate>
+</text>
