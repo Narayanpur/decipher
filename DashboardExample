@@ -1,0 +1,224 @@
+filtergroup multi=or Wave Filters
+filter id=db-1 Wave.r1 Wave 1
+filter id=db-2 Wave.r2 Wave 2
+filter id=db-3 Wave.r3 Wave 3
+filter id=db-4 Wave.r4 Wave 4
+filter id=db-5 Wave.r5 Wave 5
+filter id=db-6 Wave.r6 Wave 6
+filter id=db-7 Wave.r7 Wave 7
+filter id=db-8 Wave.r8 Wave 8
+filter id=db-9 Wave.r9 Wave 9
+filter id=db-10 Wave.r10 Wave 10
+filter id=db-11 Wave.r11 Wave 11
+filter id=db-12 Wave.r12 Wave 12
+filter id=db-40 Wave.r13 Wave 13
+
+
+page Table
+
+group id=db-13 Respondent Status
+chart id=db-14 
+row "status.qualified" Qualified
+row "status.terminated" Terminated
+row "status.partial" Partial/Incomplete
+row "status.overquota" Overquota
+total
+type pie
+Table id=db-15
+row "status.qualified" Qualified
+row "status.terminated" Terminated
+row "status.partial" Partial/Incomplete
+row "status.overquota" Overquota
+total
+Endgroup
+
+group id=db-16 CountryVsSections
+Table id=db-17
+
+banner.local
+    segment "(QS1.any and status.qualified)" Total
+    segment "(Q3.any) and (status.qualified)" # of completes perceptual
+    segment "(prf.any) and (status.qualified)" # of completes PRF
+    segment "(prf.count == 0) and (status.partial) and (Wave.r1 or Wave.r2)" Partials for perceptual
+    segment "(prf.any) and (status.partial)" Partials for PRF
+    segment "(status.terminated)" Total screened outs
+    segment "(Disposition.r10)" Screen out at S16
+    segment "(status.overquota)" Quota fulls    
+
+row "QS1.r1" Germany
+row "QS1.r2" Italy
+row "QS1.r3" Netherlands
+row "QS1.r4" Spain
+row "QS1.r5" UK
+row "QS1.r6" Switzerland   
+
+total
+Endgroup
+
+Table id=db-18 "Total PRFs country wise for completes respondents"
+  stats.prec 0 
+  banner.local
+    segment "(status.qualified)" Number of PRFs
+  row stats=sum TotalPRF.r1.ival PRFs in Germany
+  row stats=sum TotalPRF.r2.ival PRFs in Italy
+  row stats=sum TotalPRF.r3.ival PRFs in Netherlands
+  row stats=sum TotalPRF.r4.ival PRFs in Spain
+  row stats=sum TotalPRF.r5.ival PRFs in UK
+  row stats=sum TotalPRF.r6.ival PRFs in Switzerland
+  row stats=sum TotalPRF.r7.ival Total PRFs 
+  width 12
+  
+group id=db-19 "Total PRFs for PARTIALS respondents"
+Table id=db-20
+pct off
+banner.local
+    segment "(qTimePRF1_Final.r2.val and not(qTimePRFLoop_Final_1.r2.val)) and (status.partial)" First PRF
+    segment "(qTimePRFLoop_Final_1.r2.val and not(qTimePRFLoop_Final_2.r2.val)) and (status.partial)" Second PRF
+    segment "(qTimePRFLoop_Final_2.r2.val and not(qTimePRFLoop_Final_3.r2.val)) and (status.partial)" Third PRF
+    segment "(qTimePRFLoop_Final_3.r2.val and not(qTimePRFLoop_Final_4.r2.val)) and (status.partial)" Forth PRF    
+    segment "(qTimePRFLoop_Final_4.r2.val and not(qTimePRFLoop_Final_5.r2.val)) and (status.partial)" Fifth PRF    
+    segment "(qTimePRFLoop_Final_5.r2.val) and (status.partial)" Sixth PRF        
+    
+row "QS1.r1" Germany
+row "QS1.r2" Italy
+row "QS1.r3" Netherlands
+row "QS1.r4" Spain
+row "QS1.r5" UK
+row "QS1.r6" Switzerland
+
+total
+Endgroup
+ 
+group id=db-21 "PRFs for PARTIALS respondents for below identifiers"
+Table id=db-22 
+pct off
+banner.local
+
+    segment "(qTimePRF1_Final.r2.val) and (status.partial)" First PRF
+    segment "(qTimePRFLoop_Final_1.r2.val) and (status.partial)" Second PRF
+    segment "(qTimePRFLoop_Final_2.r2.val) and (status.partial)" Third PRF
+    segment "(qTimePRFLoop_Final_3.r2.val) and (status.partial)" Forth PRF    
+    segment "(qTimePRFLoop_Final_4.r2.val) and (status.partial)" Fifth PRF    
+    segment "(qTimePRFLoop_Final_5.r2.val) and (status.partial)" Sixth PRF        
+    
+row "ID_xlsx_Identifier.val=='2140' and Wave.r8" identifier - H2140
+row "ID_xlsx_Identifier.val=='2151' and Wave.r8" identifier - H2151
+row "ID_xlsx_Identifier.val=='2960' and Wave.r8" identifier - 2960
+row "ID_xlsx_Identifier.val=='2934' and Wave.r8" identifier - 2934
+row "ID_xlsx_Identifier.val=='2936' and Wave.r8" identifier - 2936
+row "ID_xlsx_Identifier.val=='2931' and Wave.r8" identifier - 2931
+row "ID_xlsx_Identifier.val=='2943' and Wave.r8" identifier - 2943
+row "ID_xlsx_Identifier.val=='2948' and Wave.r8" identifier - 2948
+row "ID_xlsx_Identifier.val=='2949' and Wave.r8" identifier - 2949
+row "ID_xlsx_Identifier.val=='2953' and Wave.r8" identifier - 2953
+row "ID_xlsx_Identifier.val=='2958' and Wave.r8" identifier - 2958
+row "ID_xlsx_Identifier.val=='H2160' and Wave.r8" identifier - H2160
+row "ID_xlsx_Identifier.val=='3054' and Wave.r9" identifier - S3054
+row "ID_xlsx_Identifier.val=='3058' and Wave.r9" identifier - 3058
+	
+Endgroup
+  
+Table id=db-23 "Median Table in Minutes"
+  stats.prec 2
+  row stats=median qTimeScreener_Final.r2.val Screener
+  row stats=median qTimePerceptual_Final.r2.val Main Section  
+  row stats=median qTimePRF1_Final.r2.val First PRF  
+  row stats=median qTimePRFLoop_Final_1.r2.val Second PRF
+  row stats=median qTimePRFLoop_Final_2.r2.val Third PRF
+  row stats=median qTimePRFLoop_Final_3.r2.val Forth PRF
+  row stats=median qTimePRFLoop_Final_4.r2.val Fifth PRF
+  row stats=median qTimePRFLoop_Final_5.r2.val Sixth PRF  
+  width 12  
+    
+
+group id=db-24 width=12 Country
+chart id=db-25
+rows vqtable2.r0-r5 
+total
+type pie
+Table id=db-26
+rows vqtable2.r0-r5
+total
+Endgroup
+
+group id=db-27 width=12 Specialty
+chart id=db-28
+rows vqtable3.r0-r7 
+total
+type pie
+Table id=db-29
+rows vqtable3.r0-r7 
+total
+Endgroup
+
+group id=db-30 CountryVsSpecialty
+Table id=db-31
+
+banner.local
+    segment "(QS2.r1 and status.qualified)" Cardiology
+    segment "(QS2.r2 or QS2.r3 or QS2.r4 or QS2.r5 or QS2.r6 or QS2.r7 or QS2.r8 or QS2.r9) and (status.qualified)" Others
+   
+row "QS1.r1" Germany
+row "QS1.r2" Italy
+row "QS1.r3" Netherlands
+row "QS1.r4" Spain
+row "QS1.r5" UK
+row "QS1.r6" Switzerland
+total
+Endgroup
+
+group id=db-32 width=12 CountryVsRespondent
+chart id=db-33
+rows vqtable4.r0-r11
+total
+type pie
+Table id=db-34
+rows vqtable4.r0-r11
+total
+Endgroup
+
+group id=db-35 width=12 SpecialtyVsRespondent
+chart id=db-36
+rows vqtable5.r0-r15
+total
+type pie
+Table id=db-37
+rows vqtable5.r0-r15
+total
+Endgroup
+
+group id=db-38 "New vs Repeat - Wave 9(Completed Respondents)"
+Table id=db-39
+pct off
+banner.local
+    segment "(ID_xlsx_NEWvREPEAT.val=='New' and Wave.r9 and status.qualified)" New
+    segment "(ID_xlsx_NEWvREPEAT.val=='Repeat' and Wave.r9 and status.qualified)" Repeat
+    
+    
+row "QS1.r1" Germany
+row "QS1.r2" Italy
+row "QS1.r3" Netherlands
+row "QS1.r4" Spain
+row "QS1.r5" UK
+row "QS1.r6" Switzerland
+
+total
+Endgroup
+
+
+
+ html
+<script>
+(function() {
+  'use strict';
+  $(document).on('globalUpdate', function() {
+
+
+      function swap_branding(img_url) {
+          $("#branding img").prop('src', img_url).css({'width':'100%'});
+      }
+      swap_branding('https:/nnnnnnnnnnnnnnnn.png');
+  });
+})();
+</script>
+end
